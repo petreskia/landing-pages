@@ -1,0 +1,58 @@
+@use "../abstracts/variables" as var;
+@use "../abstracts/mixins" as mix;
+@use "sass:math";
+
+/* --- Body padding on smaller devices --- */
+@include mix.tablet-styles {
+  body {
+    padding-left: 0;
+  }
+  /* --- Main Section Styles --- */
+}
+.gallery-section {
+  display: flex;
+  flex-wrap: wrap;
+
+  .card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-basis: 33.333%;
+    cursor: pointer;
+
+    &:hover {
+      .card-image {
+        display: none;
+      }
+      .card-text {
+        display: block;
+      }
+    }
+
+    .card-text {
+      display: none;
+      border-top: 1px solid;
+      border-bottom: 1px solid;
+      flex-basis: 80%;
+      text-align: center;
+      padding: math.div(var.$gutter-base, 2);
+    }
+    p {
+      margin: 0;
+    }
+  }
+  /* --- Responsive styles --- */
+  @include mix.tablet-styles {
+    padding-top: 66px;
+    .card {
+      flex-basis: 50%;
+    }
+  }
+
+  @include mix.mobile-l-styles {
+    padding-top: 66px;
+    .card {
+      flex-basis: 100%;
+    }
+  }
+}
