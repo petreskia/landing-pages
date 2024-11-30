@@ -1,0 +1,376 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Ubuntu Mono", monospace;
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+p,
+ul,
+ol {
+  margin-top: 0;
+}
+
+img {
+  width: 100%;
+}
+
+/* --- Common Styles --- */
+a {
+  text-decoration: none;
+  color: black;
+}
+
+/* --- Common Style --- */
+
+.bg-grey {
+  background-color: #f6f6f6;
+}
+
+/* --- Nav Bar --- */
+.menu-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 0;
+  width: 90vw;
+  margin: 0 auto;
+}
+
+.logo {
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 1.2em;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline;
+  font-size: 1em;
+}
+
+nav ul li:not(:last-child) {
+  margin-right: 0.5em;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown i {
+  font-size: 12px;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0px 2px 4px rgba(50, 50, 50, 0.3);
+  width: 6em;
+  padding: 0.5em;
+  top: 100%;
+  left: 0;
+  z-index: 1;
+  text-align: center;
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 0.2em 0;
+}
+
+.dropdown:hover .dropdown-content,
+.dropdown-content:hover .dropdown-content {
+  display: block;
+}
+
+.hamburger {
+  display: none;
+  cursor: pointer;
+  font-size: 24px;
+}
+
+/* --- Banner Section --- */
+.banner-inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: calc(100vh - 76.5px);
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 1.3em;
+}
+
+.banner-content {
+  text-align: center;
+  padding: 0 2em;
+}
+
+.banner-btn {
+  background-color: rgb(48, 47, 47);
+  padding: 1em 2em;
+  margin-top: 1em;
+  color: white;
+  font-weight: lighter;
+}
+
+/* --- Intro Section --- */
+
+.intro-section {
+  display: flex;
+  padding: 5em 0;
+}
+
+.cards-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 0 5em;
+  flex-wrap: wrap;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 6px;
+  box-shadow: 0px 1px 5px 1px rgba(50, 50, 50, 0.3);
+  color: white;
+  height: 130px;
+  width: 275px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.card-value {
+  font-size: 3em;
+  margin-bottom: 5px;
+}
+
+.card-title {
+  font-size: 1em;
+}
+
+.red-card {
+  background: rgb(255, 84, 68);
+}
+
+.purple-card {
+  background: rgb(170, 45, 182);
+}
+
+.cyan-card {
+  background: rgb(30, 194, 164);
+}
+
+.blue-card {
+  background: rgb(39, 139, 224);
+}
+
+/* --- Demo Section --- */
+
+.demo-section {
+  padding: 5em 0;
+}
+
+.demo-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  margin-bottom: 2em;
+}
+
+.demo-header p {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.demo-tabs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.demo-tabs a {
+  padding: 5px 15px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  margin-right: 0.5em;
+  background: #e8e4e5;
+}
+
+.demo-tabs a.active,
+.demo-tabs a:hover {
+  background: rgb(45, 45, 45);
+  color: white;
+}
+
+.demo-content {
+  padding: 0 10em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: -2em;
+}
+
+.page-card {
+  text-align: center;
+  box-shadow: 0px 1px 5px 1px rgba(50, 50, 50, 0.3);
+  margin-bottom: 2em;
+  border: 1px solid transparent;
+  min-width: 250px;
+  margin-right: 1em;
+}
+
+.page-card img {
+  border-bottom: 1px solid rgb(246, 246, 246);
+}
+
+.page-card p {
+  padding: 0.5em 0;
+  margin-block-end: 0;
+  margin-block-start: 0;
+}
+
+.page-card:hover {
+  border: 1px solid rgb(45, 45, 45);
+}
+
+/* --- Feature Section --- */
+
+.feature-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5em 2em;
+  text-align: center;
+  margin-bottom: -2em;
+}
+
+.feature-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100%;
+  margin-bottom: 2em;
+}
+
+.feature-separator {
+  width: 75px;
+  height: 3px;
+  margin: 10px 0;
+  background: #e9e9e9;
+}
+
+.feature-header .title {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.feature-header .subtitle {
+  font-size: 1em;
+}
+
+.feature-list {
+  list-style-type: none;
+  column-count: 3;
+  column-gap: 5em;
+  padding: 0%;
+  text-align: left;
+  flex-basis: 80%;
+}
+
+.feature-list li {
+  margin-bottom: 1.5em;
+}
+
+/* --- Socials Section --- */
+
+.socials-section {
+  padding: 5em 0;
+  background: #464646;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.socials-section .title {
+  color: white;
+  font-weight: bold;
+  font-size: 2em;
+  margin-block-end: 0;
+  margin-bottom: 10px;
+}
+
+.socials-section .icons {
+  display: flex;
+  align-items: center;
+}
+
+.socials-section .icons a {
+  font-size: 20px;
+  color: white;
+}
+
+.socials-section .icons a:hover {
+  color: rgb(45, 45, 45);
+}
+
+.socials-section .icons a:not(:last-child) {
+  margin-right: 1em;
+}
+
+/* --- Footer Section --- */
+
+.footer-section {
+  background: #000;
+  color: white;
+  padding: 2em;
+  text-align: center;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* --- Media queries --- */
+
+@media screen and (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+  .nav-bar {
+    display: none;
+  }
+
+  .feature-list {
+    column-count: 2;
+  }
+  .demo-tabs {
+    flex-wrap: wrap;
+  }
+  .demo-tabs a:not(:last-of-type) {
+    margin-bottom: 1em;
+  }
+}
