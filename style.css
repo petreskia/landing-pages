@@ -1,0 +1,264 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  color: #fff;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul {
+  margin-top: 0;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+a {
+  text-decoration: none;
+  color: #fff;
+}
+/* --- Common Styles --- */
+.wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+  margin: 0 auto;
+  padding: 4% 0;
+}
+/* --- Banner Section --- */
+.banner {
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.8)),
+    url("./images/image-01.jpg") no-repeat center center;
+  height: 100vh;
+  background-size: cover;
+}
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+  padding: 2%;
+}
+
+ul a {
+  color: rgba(182, 178, 178, 0.63);
+}
+ul a:hover {
+  color: #fff;
+}
+.hamburger-menu {
+  display: none;
+}
+ul {
+  list-style-type: none;
+  display: flex;
+  margin-bottom: 0;
+  padding: 0;
+}
+li:not(:last-child) {
+  margin-right: 20px;
+}
+.banner-content {
+  height: calc(100vh - 70px);
+  width: 40%;
+}
+.inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.title {
+  border-top: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  padding: 2%;
+  margin-bottom: 5%;
+  text-align: center;
+  width: 60%;
+}
+h1 {
+  margin-bottom: 0;
+  color: #fff;
+}
+.intro p {
+  color: #fff;
+  line-height: 1.5;
+  text-align: center;
+  margin-bottom: 5%;
+}
+.banner-content button {
+  background: transparent;
+  padding: 5% 14%;
+  color: #fff;
+  border: 1px solid #fff;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+/* --- Welcome Section --- */
+.welcome-section .wrap {
+  justify-content: space-between;
+  flex-direction: row;
+  color: #2f2d2d;
+}
+.welcome-section img {
+  height: 300px;
+  width: 300px;
+  border-radius: 50%;
+}
+.welcome-section-content {
+  text-align: center;
+  width: 60%;
+}
+.welcome-section-content p {
+  line-height: 1.5;
+  margin-bottom: 0;
+}
+/* --- Navigation Section --- */
+.navigation-section {
+  background-color: #2f2d2d;
+  text-align: center;
+}
+.card-box {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-basis: calc(33.33% - 5px);
+  text-align: center;
+  margin-bottom: 4%;
+}
+.card-inner {
+  flex-direction: column;
+  flex-basis: 60%;
+}
+.navigation-section p {
+  color: rgba(121, 116, 116, 0.911);
+  margin-bottom: 0;
+}
+.navigation-section h3 {
+  margin: 15% 0;
+}
+i {
+  font-size: 30px;
+}
+.border {
+  border-top: 2px solid #fff;
+  width: 5%;
+  margin: 4% 0;
+}
+/* --- Subscribe Section --- */
+.subscribe-section .wrap {
+  width: 40%;
+}
+.subscribe-section h2 {
+  color: #2f2d2d;
+}
+.subscribe-section button {
+  padding: 2% 6%;
+  border-radius: 5px;
+  background-color: #017bff;
+  color: #fff;
+  border: none;
+}
+.subscribe-section button:hover {
+  background-color: #07478b;
+  cursor: pointer;
+}
+.subscribe-section input {
+  padding: 2%;
+  border-radius: 5px;
+  width: 80%;
+  margin-bottom: 5%;
+  outline: none;
+  border: 1px ridge;
+}
+.subscribe-section input:focus {
+  border: 2px solid;
+}
+/* --- Contact Section --- */
+.contact-section {
+  background-color: #2f2d2d;
+}
+.contact-section .wrap {
+  padding: 1.5% 0;
+}
+.contact-section p {
+  color: #fff;
+}
+.contact-section i {
+  font-size: 15px;
+}
+.contact-section a:not(:last-child) {
+  margin-right: 15px;
+}
+/* --- Responsive styles --- */
+/* --- Tablet Styles --- */
+@media (max-width: 768px) {
+  .wrap {
+    width: 80%;
+  }
+  nav ul {
+    display: none;
+  }
+  .hamburger-menu {
+    display: block;
+  }
+  .logo {
+    font-size: 25px;
+  }
+  .card {
+    flex-basis: calc(50% - 5px);
+  }
+  .contact-section .wrap {
+    padding: 5% 0;
+  }
+}
+/* --- Mobile Styles --- */
+@media (max-width: 425px) {
+  .wrap {
+    padding: 20% 0;
+  }
+  .welcome-section .wrap {
+    flex-direction: column;
+    width: 90%;
+  }
+  .card {
+    flex-basis: 100%;
+  }
+  .welcome-section-content {
+    width: 100%;
+    margin-bottom: 5%;
+  }
+  .welcome-section img {
+    height: 200px;
+    width: 200px;
+  }
+  .border {
+    margin: 10% 0;
+  }
+  .subscribe-section .wrap {
+    width: 100%;
+  }
+  .banner button {
+    width: 100%;
+  }
+  .title {
+    width: 80%;
+  }
+}
