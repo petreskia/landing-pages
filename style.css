@@ -1,0 +1,183 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Arial", sans-serif;
+  color: #333;
+  padding-bottom: 63px;
+}
+
+h1,
+h2,
+h3,
+p,
+ul,
+ol {
+  margin-top: 0;
+}
+
+h2 {
+  font-size: 32px;
+}
+
+h3 {
+  font-size: 24px;
+}
+
+p {
+  font-size: 20px;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+/* common */
+
+.wrap {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn {
+  padding: 10px 20px;
+  background-color: rgb(113, 153, 195);
+  color: white;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3 ease-out;
+}
+
+.btn:hover {
+  background-color: rgb(141, 192, 246);
+}
+
+/* Header */
+header {
+  height: 80vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 1)),
+    url("./images/main-image.jpg");
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  color: white;
+  position: relative;
+}
+
+header h1 {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  text-transform: uppercase;
+}
+
+/* Navigation */
+
+nav {
+  background-color: #333;
+  padding: 20px;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+nav a {
+  text-decoration: none;
+  color: white;
+}
+
+nav a:hover {
+  color: rgb(113, 153, 195);
+}
+
+nav a:not(:last-child) {
+  margin-right: 30px;
+}
+
+/* Packages Section */
+.packages-parent {
+  font-size: 0;
+  margin-right: -30px;
+}
+.packages-section {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+.packages-section .img-box {
+  position: relative;
+}
+
+.img-box .price {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  color: white;
+  z-index: 6868;
+  font-size: 16px;
+}
+
+.package-item {
+  display: inline-block;
+  width: 33.33%;
+}
+
+.inner {
+  background-color: rgb(222, 213, 213);
+  margin-right: 30px;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.package-item a {
+  text-decoration: none;
+  color: #333;
+  display: block;
+}
+
+.packages-section .content-box {
+  padding: 30px;
+}
+
+.package-item:hover h3 {
+  color: rgb(113, 153, 195);
+}
+
+.package-item h3 {
+  transition: color 0.3s ease-out;
+}
+
+/* Subscribe */
+
+.subscribe {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)),
+    url("./images/subscribe-image.jpg");
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top;
+  padding-top: 80px;
+  padding-bottom: 80px;
+  color: white;
+}
+
+footer p {
+  text-align: center;
+  margin-bottom: 0;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #333;
+  color: white;
+  padding: 20px;
+}
