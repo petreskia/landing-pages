@@ -1,0 +1,179 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  margin: 0;
+  background-color: #313131;
+  padding-bottom: 48.5px;
+}
+
+h1 {
+  font-family: "Dancing Script", cursive;
+}
+
+h1,
+h2,
+h3,
+p,
+ul,
+ol {
+  margin-top: 0;
+}
+
+h2 {
+  font-size: 20px;
+}
+
+p {
+  font-size: 20px;
+}
+
+img {
+  width: 100%;
+}
+
+.section {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+.wrap {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn {
+  background-color: transparent;
+  color: #000;
+  border: 2px solid #b6a876;
+  font-size: 20px;
+  text-decoration: none;
+  padding: 10px 20px;
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  transition: background-color .3s ease-out, color .3s ease-out;
+}
+
+.btn:hover {
+  background-color: #b6a876;
+  color: #fff;
+}
+
+/* ___________________________________________ */
+
+.banner {
+  background-image: url("./images/banner.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  height: calc(100vh - 48.5px);
+}
+
+.banner-inner {
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 100%;
+  position: relative;
+}
+
+.banner h1 {
+  position: absolute;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 100px;
+  text-transform: uppercase;
+  color: #fff;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.banner .hamburger-menu {
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #fff;
+  border: 0;
+  padding: 0;
+  color: #000;
+  cursor: pointer;
+  transition: background-color .3s ease-out, color .3s ease-out;
+}
+
+.banner .hamburger-menu:hover {
+  background-color: #b6a876;
+  color: #fff;
+}
+
+/* ___________________________________________ */
+
+.recipes {
+  font-size: 0;
+  margin-right: -15px;
+}
+
+.recipe {
+  display: inline-block;
+  width: 25%;
+}
+
+.recipe-inner {
+  margin-right: 15px;
+  background-color: #fff;
+}
+
+.recipe-inner .media {
+  position: relative;
+}
+
+.recipe-inner .media .time {
+  font-size: 14px;
+  position:  absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #b6a876;
+  padding: 10px 20px;
+  font-weight: bold;
+}
+
+.recipe-inner .content {
+  padding: 15px;
+}
+
+.recipe .content > *:last-child { margin-bottom: 0; }
+
+/* ___________________________________________ */
+
+.background-section {
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('./images/banner.jpg') center/cover no-repeat fixed;
+  color: #fff;
+  text-align: center;
+}
+
+.background-section .wrap > *:last-child { margin-bottom: 0; }
+
+.background-section h2 {
+  font-size: 32px;
+}
+
+/* ___________________________________________ */
+
+footer {
+  background-color: #fff;
+  color: #000;
+  box-shadow: 4px -4px 15px 0px rgba(0,0,0,0.48);
+  text-align: center;
+  padding: 15px 0;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+footer > *:last-child { margin-bottom: 0; }
