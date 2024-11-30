@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bikes</title>
+    <meta name="keywords" content="html,css,javaScript" />
+    <meta name="description" content="Bikes" />
+    <meta name="author" content="" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+
+    <!-- Latest compiled and minified BOOTSTRAP CSS -->
+    <!-- <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    /> -->
+
+    <!-- Local CSS -->
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+
+    <!-- Font-awesome 5 cdn -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <!-- start here -->
+    <!-- Main wrapper -->
+    <div class="main-wrapper">
+      <!-- Header -->
+      <header class="header">
+        <!-- Nav-bar -->
+        <div class="nav-bar">
+          <div class="logo">
+            <a href="#">
+              <img src="./img/logo.png" alt="bike-icon" class="logo-image"
+            /></a>
+          </div>
+          <div class="page-navigation">
+            <a href="#" class="uppercase-navigations">Home</a>
+            <a href="#" class="uppercase-navigations">Bikes</a>
+            <a href="#" class="uppercase-navigations">Gear</a>
+            <a href="#" class="uppercase-navigations">Parts</a>
+            <a href="#" class="uppercase-navigations">Tires</a>
+            <a href="#" class="uppercase-navigations">Service-Info</a>
+            <a href="#" class="uppercase-navigations">Catalogues</a>
+            <a href="#" class="uppercase-navigations">Contact</a>
+          </div>
+          <div class="search-and-addToCart">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <i class="fa-solid fa-bag-shopping"></i>
+          </div>
+        </div>
+        <!-- Title section -->
+        <div class="title-section"><h1>Bikes</h1></div>
+      </header>
+      <!-- Main Content -->
+      <main class="main-section">
+        <!-- Filters container -->
+        <div id="filtersContainer" class="filters-container">
+          <h2>Filter by:</h2>
+          <!-- Show all filter -->
+          <div class="filters-show-all filters">
+            <p id="filterShowAll" class="filter-category">Show all</p>
+            <span id="ValueShowAll" class="filtered-items-badge">0</span>
+          </div>
+          <!-- Filters by gender -->
+          <div class="filters-gender">
+            <h3>Gender</h3>
+            <div class="filter-male filters">
+              <p>Male</p>
+              <span id="genderMale" class="filtered-items-badge">0</span>
+            </div>
+            <div class="filter-female filters">
+              <p>Female</p>
+              <span id="genderFemale" class="filtered-items-badge">0</span>
+            </div>
+          </div>
+          <!-- Filters by brand -->
+          <div class="filters-brand">
+            <h3>Brand</h3>
+            <div class="brand filters">
+              <p class="brand-name">Le Grand Bikes</p>
+              <span class="filtered-items-badge">0</span>
+            </div>
+            <div class="brand filters">
+              <p class="brand-name">Kross</p>
+              <span class="filtered-items-badge">0</span>
+            </div>
+            <div class="brand filters">
+              <p class="brand-name">Explorer</p>
+              <span class="filtered-items-badge">0</span>
+            </div>
+            <div class="brand filters">
+              <p class="brand-name">Visitor</p>
+              <span class="filtered-items-badge">0</span>
+            </div>
+            <div class="brand filters">
+              <p class="brand-name">Pony</p>
+              <span class="filtered-items-badge">0</span>
+            </div>
+            <div class="brand filters">
+              <p class="brand-name">Force</p>
+              <span class="filtered-items-badge">0</span>
+            </div>
+            <div class="brand filters">
+              <p class="brand-name">E-Bikes</p>
+              <span class="filtered-items-badge">0</span>
+            </div>
+            <div class="brand filters">
+              <p class="brand-name">Ideal</p>
+              <span class="filtered-items-badge">0</span>
+            </div>
+          </div>
+        </div>
+        <!-- Cards/Items container -->
+        <div id="itemsContainer" class="items-container"></div>
+      </main>
+    </div>
+    <!-- Footer wrapper -->
+    <div class="footer-wrapper">
+      <footer class="footer">
+        <!-- Social share buttons -->
+        <div class="social-share-box footer-box">
+          <h3>Social share</h3>
+          <div class="social-buttons-box">
+            <a href="https://www.facebook.com/" target="_blank"
+              ><i class="fa-brands fa-facebook-f social-btn"></i
+            ></a>
+            <a href="https://www.instagram.com/" target="_blank"
+              ><i class="fa-brands fa-instagram social-btn"></i
+            ></a>
+            <a href="https://x.com/" target="_blank"
+              ><i class="fa-brands fa-twitter social-btn"></i
+            ></a>
+            <a href="https://www.linkedin.com/" target="_blank"
+              ><i class="fa-brands fa-linkedin-in social-btn"></i
+            ></a>
+          </div>
+        </div>
+        <!-- Event info -->
+        <div class="event-info-box footer-box">
+          <h3>Event info</h3>
+          <a href="#" class="display-block">Enter Now</a>
+          <a href="#" class="display-block">Event Info</a>
+          <a href="#" class="display-block">Course Maps</a>
+          <a href="#" class="display-block">Race Pack</a>
+          <a href="#" class="display-block">Results</a>
+          <a href="#" class="display-block">FAQs</a>
+          <a href="#" class="display-block">Am I Registered?</a>
+        </div>
+        <!-- Registration -->
+        <div class="registration-box footer-box">
+          <h3>Registration</h3>
+          <a href="#" class="display-block">Volunteers</a>
+          <a href="#" class="display-block">Gallery</a>
+          <a href="#" class="display-block">Press</a>
+          <a href="#" class="display-block">Results</a>
+          <a href="#" class="display-block">Privacy Policy</a>
+          <a href="#" class="display-block">Service Plus</a>
+          <a href="#" class="display-block">Contacts</a>
+        </div>
+        <!-- Schedule -->
+        <div class="schedule-box footer-box">
+          <h3>Schedule</h3>
+          <a href="#" class="display-block">Gallery</a>
+          <a href="#" class="display-block">About</a>
+          <a href="#" class="display-block">Videos</a>
+          <a href="#" class="display-block">Results</a>
+          <a href="#" class="display-block">FAQs</a>
+          <a href="#" class="display-block">Results</a>
+          <a href="#" class="display-block">Volunteers</a>
+        </div>
+      </footer>
+    </div>
+
+    <!-- jQuery library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>

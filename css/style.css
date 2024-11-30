@@ -1,0 +1,238 @@
+/*use color:orange for the orange color*/
+/*use background-color: #d3d3d3; color: #5c5c5c; for the badges*/
+/*use color:grey for the social-share icons on hover*/
+* {
+  box-sizing: border-box;
+}
+body {
+  background-color: #e7e7e7;
+  color: black;
+  margin: 0%;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+a:hover {
+  color: orange;
+  text-decoration: none;
+}
+
+/* Wrapping body context on 80% of the full width */
+.main-wrapper {
+  width: 80%;
+  margin: 0 auto;
+  background-color: white;
+}
+
+/* Header */
+
+.header {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.nav-bar,
+.title-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  border-bottom: 1px solid rgba(233, 229, 229, 0.993);
+}
+.title-section {
+  padding-left: 0;
+}
+.logo-image {
+  height: 4rem;
+  width: max-content;
+}
+.search-and-addToCart i {
+  font-size: 25px;
+}
+.search-and-addToCart i:not(:last-child) {
+  margin-right: 1rem;
+}
+i:hover {
+  color: orange;
+  cursor: pointer;
+}
+
+h1 {
+  font-size: 50px;
+  font-weight: normal;
+}
+.uppercase-navigations {
+  text-transform: uppercase;
+  font-weight: bold;
+  padding: 1rem;
+}
+.uppercase-navigations:hover {
+  background-color: #d3d3d3;
+}
+/* Main Section */
+
+.main-section {
+  display: flex;
+  padding: 2rem 0;
+}
+
+/* Filters container */
+
+.filters-container {
+  min-width: 25%;
+  padding: 0 1rem;
+}
+h2 {
+  margin-bottom: 2rem;
+}
+h3 {
+  font-size: 22px;
+  margin: 1rem 0;
+}
+.filters {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(233, 229, 229, 0.993);
+  padding-bottom: 0.8rem;
+}
+.filter-male,
+.brand {
+  border-bottom: none;
+}
+
+.brand-name {
+  text-transform: uppercase;
+}
+.filtered-items-badge {
+  font-weight: bold;
+  color: #5c5c5c;
+  padding: 2px 10px;
+  border-radius: 10px;
+  background-color: #d3d3d3;
+}
+
+.filters:hover {
+  cursor: pointer;
+}
+.filters.active p {
+  font-weight: bold;
+  color: orange;
+}
+
+.filters.active span {
+  background-color: orange;
+}
+.filters:hover p {
+  color: orange;
+}
+
+.filters:hover span {
+  background-color: orange;
+}
+
+/* Items Container */
+
+img {
+  height: 15rem;
+  width: 15rem;
+  object-fit: contain;
+}
+
+.items-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-grow: 1;
+  row-gap: 2rem;
+}
+.card {
+  flex-basis: 33.33%;
+  height: max-content;
+  border-radius: 5px;
+  padding: 0 1rem;
+}
+
+.card-inner:hover {
+  cursor: pointer;
+  border-color: orange;
+}
+.card-top:hover {
+  transform: scale(1.1);
+  transition: ease-in-out 0.3s;
+}
+
+.card-inner {
+  border: 2px solid rgba(233, 229, 229, 0.993);
+}
+
+.card-top {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+}
+.card-bottom {
+  background-color: orange;
+  padding: 1rem;
+}
+.card-title {
+  font-size: 18px;
+  margin-top: 0;
+}
+
+/* Footer */
+
+.footer-wrapper {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.footer {
+  display: flex;
+  padding: 3rem 0;
+  background-color: #d3d3d3;
+}
+
+.footer-box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  flex-basis: 25%;
+  padding-left: 2rem;
+}
+.footer-box a {
+  width: max-content;
+}
+.footer-box:not(:last-child) {
+  border-right: 1px solid rgba(233, 229, 229, 0.993);
+}
+
+.social-buttons-box {
+  display: flex;
+  gap: 0.8rem;
+}
+.social-btn {
+  padding: 0.8rem;
+  color: white;
+  background-color: orange;
+}
+
+.social-btn:hover {
+  background-color: grey;
+  color: white;
+}
+
+.social-share-box {
+  text-align: start;
+}
