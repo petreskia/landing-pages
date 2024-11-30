@@ -1,0 +1,40 @@
+@use "../abstracts/variables" as var;
+@use "../abstracts/mixins" as mix;
+@use "sass:math";
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  font-weight: normal;
+  line-height: 1.5;
+}
+
+h1 {
+  font-size: var.$heading-size-bigger;
+  margin-bottom: 0;
+
+  @include mix.tablet-style {
+    font-size: var.$heading-size-big;
+  }
+}
+
+// h2 {}
+
+// h3 {}
+
+// p {}
+
+.btn {
+  border-radius: var.$border-radius;
+  padding: math.div(var.$gutter-base, 3);
+  background-color: var.$background-color-base;
+  border: 1px solid var.$background-color-tertiary;
+
+  &:hover {
+    border-color: var.$background-color-secondary;
+    cursor: pointer;
+  }
+}

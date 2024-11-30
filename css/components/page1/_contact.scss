@@ -1,0 +1,89 @@
+@use '../abstracts/variables' as var;
+@use '../abstracts/mixins' as mix;
+@use 'sass:math';
+
+
+.contact {
+    background-color: var.$background-color-tertiary;
+    @extend %section;
+
+    .inner {
+        @extend %wrap;
+        width: 60%;
+        display: flex;
+
+        @include mix.tablet-style {
+            width: 100%;
+            display: block;
+        }
+
+        .form-content {
+            flex-basis: 50%;
+
+
+            .half-width-inputs {
+                width: 100%;
+                display: flex;
+                flex-wrap: wrap;
+                gap: math.div(var.$gutter-base, 5);
+
+
+                input {
+                    background-color: transparent;
+                    flex-basis: 50%;
+
+                    @include mix.tablet-style {
+                        flex-basis: 100%;
+                    }
+
+                    border: none;
+                    padding: math.div(var.$gutter-base, 3);
+                    border-bottom: 1px solid var.$border-color;
+
+                    &:focus {
+                        outline: none;
+                        border-bottom: 1px solid var.$border-color-active;
+
+                    }
+                }
+            }
+
+
+            textarea {
+                display: block;
+                background-color: transparent;
+                width: 100%;
+                margin-top: math.div(var.$gutter-base, 3);
+                margin-bottom: math.div(var.$gutter-base, 3);
+                border: 1px solid var.$border-color;
+
+                &:focus {
+                    outline: none;
+                    border: 1px solid var.$border-color-active;
+
+                }
+            }
+
+            .btn {
+                @include mix.tablet-style {
+                    width: 100%;
+                    margin-bottom: math.div(var.$gutter-base, 3);
+                }
+            }
+        }
+
+        .icons-content {
+            flex-basis: 50%;
+            text-align: center;
+
+            i {
+                color: var.$background-color-primary;
+                font-size: 30px;
+
+                &:not(:last-child) {
+                    margin-right: math.div(var.$gutter-base, 2);
+                }
+            }
+        }
+    }
+}
