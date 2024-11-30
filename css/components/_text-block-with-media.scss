@@ -1,0 +1,39 @@
+@use "../abstracts/variables"as var;
+@use "../abstracts/mixins"as mix;
+
+.text-block-with-media {
+  @extend %section;
+
+  .inner {
+    @extend %wrap;
+    display: flex;
+
+    @include mix.tablet-styles {
+      flex-wrap: wrap;
+    }
+  }
+
+  .content-box,
+  .img-box {
+    flex: 0 1 50%;
+
+    @include mix.tablet-styles {
+      flex-basis: 100%;
+    }
+  }
+
+  .content-box {
+    &:not(:last-child) {
+      padding-right: (var.$gutter-base * 1.5);
+
+      @include mix.tablet-styles {
+        padding-right: 0;
+        margin-bottom: 30px;
+      }
+    }
+
+    ul span {
+      font-weight: var.$font-weight-bold;
+    }
+  }
+}

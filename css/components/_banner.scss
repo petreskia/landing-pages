@@ -1,0 +1,37 @@
+@use "../abstracts/variables" as var;
+@use "../abstracts/mixins" as mix;
+@use "sass:math";
+
+.banner {
+  @extend %section;
+  min-height: 100vh;
+  background: url("../img/img01.jpg") center/cover no-repeat fixed;
+  display: flex;
+  align-items: center;
+
+  @include mix.mobile-l-styles {
+    background-attachment: scroll;
+  }
+
+  .inner {
+    @extend %wrap;
+    flex: 0 1 auto;
+  }
+
+  .overlay {
+    max-width: 50%;
+
+    @include mix.tablet-styles {
+      max-width: 100%;
+    }
+
+    p:not(.label) {
+      font-size: var.$font-size-medium;
+    }
+
+    .label {
+      text-transform: uppercase;
+      margin-bottom: math.div(var.$gutter-base, 6);
+    }
+  }
+}

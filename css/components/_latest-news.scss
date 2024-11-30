@@ -1,0 +1,53 @@
+@use "../abstracts/variables" as var;
+@use "../abstracts/mixins" as mix;
+@use "sass:math";
+
+.latest-news {
+  @extend %section;
+  background-color: var.$background-color-secondary;
+
+  .inner {
+    @extend %wrap;
+  }
+
+  .flex-cont:not(:first-child) { margin-top: (var.$gutter-base * 1.5); }
+
+  .col-inner {
+    background-color: var.$background-color-base;
+    border-radius: 4px;
+    overflow: hidden;
+
+    .content {
+      padding: (var.$gutter-base);
+
+      @include mix.tablet-styles {
+        padding: math.div(var.$gutter-base, 2);
+
+        .btn {
+          display: block;
+          width: 100%;
+        }
+      }
+    }
+
+    .img-box {
+      position: relative;
+
+      .category {
+        position: absolute;
+        top: math.div(var.$gutter-base, 3);
+        right: math.div(var.$gutter-base, 3);
+        border-radius: 80px;
+        color: var.$text-color-secondary;
+        font-size: var.$font-size-small;
+        padding: math.div(var.$gutter-base, 6) math.div(var.$gutter-base, 4);
+
+        &.bg-pink { background-color: var.$background-color-primary; }
+
+        &.bg-blue { background-color: var.$background-color-tertiary; }
+
+        &.bg-cyan { background-color: var.$background-color-quaternary; }
+      }
+    }
+  }
+}
