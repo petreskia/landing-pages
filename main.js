@@ -7,16 +7,15 @@ document.addEventListener("DOMContentLoaded", function () {
       ? "index.html"
       : window.location.pathname.split("/").pop();
 
-  console.log("Pathname:", window.location.pathname);
-  console.log("Current Path:", currentPath);
-
   // Highlight the active link
   navLinks.forEach((link) => {
     const href = link.getAttribute("href").split("/").pop(); // Normalize href
     if (href === currentPath) {
       link.classList.add("active");
+      link.classList.remove("text-white-50"); // Optional: Remove inactive styles
     } else {
       link.classList.remove("active");
+      link.classList.add("text-white-50"); // Optional: Add inactive styles
     }
   });
 });
