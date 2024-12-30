@@ -11,7 +11,10 @@ document.addEventListener("DOMContentLoaded", function () {
   // Highlight the active link
   navLinks.forEach((link) => {
     const href = link.getAttribute("href").replace("./", ""); // Normalize href (strip leading ./)
-    if (href === currentPath) {
+    if (
+      href === currentPath ||
+      (currentPath === "index.html" && href === "index.html")
+    ) {
       link.classList.add("active");
     } else {
       link.classList.remove("active");
