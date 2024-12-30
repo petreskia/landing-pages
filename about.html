@@ -259,39 +259,7 @@
       crossorigin="anonymous"
     ></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const navLinks = document.querySelectorAll(".nav-link");
-
-        // Handle click events to set active class
-        navLinks.forEach((link) => {
-          link.addEventListener("click", function () {
-            // Remove active class from all nav links
-            navLinks.forEach((nav) => nav.classList.remove("active"));
-
-            // Add active class to the clicked nav link
-            link.classList.add("active");
-          });
-        });
-
-        // Set active class based on the current URL
-        const currentPath =
-          window.location.pathname
-            .split("/")
-            .filter((segment) => segment !== "") // Filter out empty segments
-            .pop() || "index.html"; // Default to index.html if root path
-
-        navLinks.forEach((link) => {
-          const href = link.getAttribute("href");
-          if (
-            href.includes(currentPath) ||
-            (currentPath === "" && href.endsWith("index.html"))
-          ) {
-            link.classList.add("active");
-          }
-        });
-      });
-    </script>
+    <script src="./main.js" defer></script>
 
     <!-- BOOTSTRAP JS -->
     <script
