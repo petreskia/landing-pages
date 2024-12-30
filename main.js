@@ -1,23 +1,19 @@
 document.addEventListener("DOMContentLoaded", function () {
   const navLinks = document.querySelectorAll(".nav-link");
 
-  // Get the current path from the URL
+  // Get the current path or set to "index.html" for the root URL
   const currentPath =
-    window.location.pathname
-      .split("/")
-      .filter(Boolean) // Removes empty strings caused by leading/trailing slashes
-      .pop() || "index.html"; // Default to index.html if root path
+    window.location.pathname === "/"
+      ? "index.html"
+      : window.location.pathname.split("/").pop();
 
   console.log("Pathname:", window.location.pathname);
   console.log("Current Path:", currentPath);
 
   // Highlight the active link
   navLinks.forEach((link) => {
-    const href = link.getAttribute("href").split("/").pop();
-    if (
-      href === currentPath ||
-      (currentPath === "index.html" && href === "index.html")
-    ) {
+    const href = link.getAttribute("href").split("/").pop(); // Normalize href
+    if (href === currentPath) {
       link.classList.add("active");
     } else {
       link.classList.remove("active");
