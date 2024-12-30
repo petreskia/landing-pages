@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
   const navLinks = document.querySelectorAll(".nav-link");
 
-  // Get the current path or set to "index.html" for the root URL
+  // Get the current path; treat root ("/") as "index.html"
   const currentPath =
     window.location.pathname === "/"
       ? "index.html"
@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Highlight the active link
   navLinks.forEach((link) => {
-    const href = link.getAttribute("href").split("/").pop(); // Normalize href
+    const href = link.getAttribute("href").replace("./", ""); // Normalize href
     if (href === currentPath) {
       link.classList.add("active");
       link.classList.remove("text-white-50"); // Optional: Remove inactive styles
