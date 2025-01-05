@@ -21,7 +21,7 @@
 }
 /* Carousel */
 .carousel img {
-  height: calc(100vh - 56px);
+  height: 60vh;
 }
 .carousel-caption {
   bottom: auto;
