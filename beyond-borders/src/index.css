@@ -1,0 +1,86 @@
+/* Importing both fonts */
+@import url("https://fonts.googleapis.com/css2?family=Modak&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Modak&family=MuseoModerno:ital,wght@0,100..900;1,100..900&display=swap");
+
+/* Reset default margins, padding, and box-sizing */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Ensure images and videos are responsive */
+img,
+video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Remove list styles for unordered/ordered lists */
+ul,
+ol {
+  list-style: none;
+  padding: 0;
+}
+
+/* Reset anchor tags */
+a {
+  text-decoration: none;
+  color: inherit; /* Use the current text color */
+}
+/* Increase specificity to target NavLink */
+.nav-link {
+  text-decoration: none; /* Remove underline */
+  color: inherit; /* Inherit color from parent */
+}
+
+/* Target active NavLink */
+.nav-link.active {
+  color: #2a2e32; /* Customize active color */
+}
+
+/* Optionally, change color on hover */
+.nav-link:hover {
+  color: #f00; /* Customize hover color */
+  text-decoration: underline; /* Add underline on hover */
+}
+
+/* Default body styles */
+body {
+  font-family: "Museo Moderno", sans-serif;
+  color: #333; /* Neutral text color */
+  background-color: #f8f9fa; /* Light background */
+  -webkit-font-smoothing: antialiased; /* Smooth font rendering */
+}
+
+/* Or you can apply it to specific elements */
+h1,
+h2,
+h3 {
+  font-family: "Modak", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Buttons */
+button {
+  font: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  outline: none;
+}
+
+/* Inputs and Textareas */
+input,
+textarea {
+  font: inherit;
+  border: none;
+  outline: none;
+}
+h1 {
+  margin: 0 !important;
+}
