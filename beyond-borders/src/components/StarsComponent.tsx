@@ -1,6 +1,6 @@
 export default function StarsComponent() {
   return (
-    <div className="star-container d-flex align-items-center">
+    <div className="star-container d-flex align-items-center m-auto justify-content-center mb-4">
       <div className="star-item">
         <img src="/stars&names/Heaaling.png" alt="H" className="star-image" />
       </div>

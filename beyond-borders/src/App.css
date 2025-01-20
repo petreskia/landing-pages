@@ -1,6 +1,6 @@
 /* Header */
 .header {
-  height: 600px;
+  height: 700px;
   background-color: #8aaa84;
   display: flex;
   flex-direction: column;
@@ -19,26 +19,35 @@
 }
 /* Header Bottom */
 .header-bottom {
-  height: 30%;
+  height: 43%;
   background: #ffffff; /* White background to contrast */
   border-top-left-radius: 100%; /* Curved effect for bottom */
   border-top-right-radius: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #5a5a5a;
+  position: relative;
+}
+.heading-home {
+  color: white;
+}
+.heading-anger {
+  color: #ad2783;
+  text-transform: uppercase;
 }
 
-/* Additional Styles
-.curve-separator {
-  width: 100%;
-  height: 300px;
-  background: #ffffff;
-  border-top-left-radius: 75%;
-  border-top-right-radius: 75%;
-  margin-top: -25px;
-} */
+.heading-sadness {
+  color: #1f559c;
+  text-transform: uppercase;
+}
 
+.heading-fear {
+  color: #512e54;
+  text-transform: uppercase;
+}
+.heading-other {
+  color: #d2f0ce;
+}
 .title-text {
   text-transform: uppercase;
   height: max-content;
@@ -52,11 +61,22 @@
   margin: 0;
   letter-spacing: 0;
 }
-
+.custom-heading {
+  font-size: 40px;
+}
+/* Colors */
+.dark-pink {
+  color: #ad2783;
+}
+.light-pink {
+  color: #ffdceb;
+}
 .light-green {
   color: #e4ffc8;
 }
-
+.green-text {
+  color: #5c6b4c;
+}
 .green {
   color: #c9f19d;
 }
@@ -68,7 +88,12 @@
 .light-blue {
   color: #a4cbf8;
 }
-
+.blue-text {
+  color: #1e559c;
+}
+.violet-text {
+  color: #5a1662;
+}
 .light-violet {
   color: #ecd9ff;
 }
@@ -98,17 +123,14 @@
 }
 
 .nav-btn {
-  flex-basis: 25%;
+  flex-basis: 20%;
   text-align: center;
-  font-weight: bold;
-  color: #5a5a5a;
+  color: #5c6b4c;
   text-decoration: none;
-  transition: background-color 0.3s;
 }
 
 .nav-btn:hover {
-  background-color: #b0c9a5;
-  border-radius: 10px;
+  transform: scale(1.1);
 }
 
 .nav-btn:not(:last-child) {
@@ -116,11 +138,7 @@
 }
 
 /* HomePage */
-.intro-content {
-  position: relative; /* Change to relative for normal document flow */
-  top: 0; /* Remove any offset */
-  margin-bottom: 40px; /* Add space below the StarsComponent */
-}
+
 .character-card {
   height: max-content;
   background-color: #d3afff;
@@ -132,21 +150,18 @@
   width: 400px;
   height: 400px;
   border-radius: 50%;
-  overflow: hidden;
   position: relative;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .media-container:hover {
   transform: scale(1.1);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .character-media {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  position: absolute;
   top: 0;
   left: 0;
 }
@@ -155,45 +170,132 @@
 /* Base button styles */
 .navigate-button {
   padding: 10px 20px;
-  font-size: 16px;
-  font-family: Arial, sans-serif;
+  font-size: 40px;
+  font-weight: bolder;
   border-radius: 20px;
+  font-family: Arial, sans-serif;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
   width: max-content;
   margin: 0 auto;
+  text-decoration: none !important;
+  font-family: "MuseoModerno", serif;
+}
+.navigate-button:hover {
+  transform: scale(1.2);
+}
+
+.custom-button-absolute {
+  position: absolute;
+  bottom: -1.5%;
+  left: 38%;
+}
+.custom-button-absolute:hover {
+  transform: scale(1.15);
+}
+.guides-button-anger {
+  padding: 0.5% 90%;
+  border: 4px solid #ad2783;
+  background-color: #ffdceb;
+  color: #ad2783;
+  border-radius: 40px;
+  width: 100%;
+  text-align: center;
+  font-size: 40px;
+}
+.guides-button-sadness {
+  border: 4px solid #0d73da;
+  background-color: #d6f1ff;
+  color: #0d73da;
+  padding: 0.5% 90%;
+  border-radius: 40px;
+  width: 100%;
+  text-align: center;
+  font-size: 40px;
+}
+.guides-button-fear {
+  border: 4px solid #7d4e83;
+  background-color: #ceb8d5;
+  color: #7d4e83;
+  padding: 0.5% 90%;
+  border-radius: 40px;
+  width: 100%;
+  text-align: center;
+  font-size: 40px;
 }
 
 /* Blue button styles */
 .blue-nvg-btn {
-  background-color: blue;
-  color: lightblue;
-  border: 2px solid lightblue;
+  background-color: #d6f1ff;
+  color: #2463ac;
+  border: 2px solid #2463ac;
+  font-size: 16px;
+}
+/* Pink button styles */
+.pink-nvg-btn {
+  background-color: #ffdceb;
+  color: #ad2783;
+  border: 2px solid #ad2783;
+  font-size: 16px;
 }
 
 /* Violet button styles */
 .violet-nvg-btn {
-  background-color: violet;
-  color: purple;
-  border: 2px solid purple;
+  background-color: #d3b6d8;
+  color: #572c5d;
+  border: 2px solid #572c5d;
+  font-size: 16px;
 }
-
-/* Green button styles */
 .green-nvg-btn {
-  background-color: green;
-  color: lightgreen;
-  border: 2px solid lightgreen;
+  background-color: #d5f0d2;
+  color: #3f4835;
+  border: 2px solid #3f4835;
+  font-size: 25px;
 }
-
+.pink-footer-btn {
+  background-color: #ffdceb;
+  color: #ad2783;
+  border: 4px solid #ad2783;
+  border-radius: 40px;
+  padding: 0.2% 10%;
+}
+.blue-footer-btn {
+  background-color: #d6f1ff;
+  color: #2463ac;
+  border: 4px solid #2463ac;
+  border-radius: 40px;
+  padding: 0.2% 10%;
+}
+.violet-footer-btn {
+  background-color: #ceb8d5;
+  color: #7d4e83;
+  border: 4px solid #7d4e83;
+  border-radius: 40px;
+  padding: 0.2% 10%;
+}
 /* Emotions Page */
 .emotion-links {
   gap: 5%;
+}
+.emotion-link {
+  text-transform: uppercase;
+  color: #d2f0ce;
+  text-decoration: none;
+}
+.emotion-link1:hover {
+  color: #ad2783;
+}
+.emotion-link2:hover {
+  color: #2463ac;
+}
+.emotion-link3:hover {
+  color: #572c5d;
 }
 .star-item {
   cursor: pointer;
 }
 .star-item:hover {
-  transform: scale(1.2); /* Use transform instead of scale directly */
+  transform: scale(1.1); /* Use transform instead of scale directly */
   transition: transform 0.3s ease; /* Add smooth transition */
 }
 .intro-content {
@@ -203,4 +305,235 @@
 .star-item {
   width: 200px;
   height: 200px;
+  margin-bottom: 2%;
+}
+.custom-character {
+  position: absolute; /* Keeps it absolutely positioned within the parent */
+  bottom: 5%; /* Adjust top value as needed */
+  width: 500px; /* Or set to a specific value */
+  height: 500px; /* Or set to a specific value */
+  display: flex; /* Ensures content is aligned within the container */
+  justify-content: center; /* Centers content horizontally */
+  align-items: center; /* Centers content vertically */
+}
+.custom-character:hover {
+  transform: none; /* Scale up on hover */
+  transition: none; /* Add smooth transition */
+}
+.custom-card {
+  width: 100%;
+  height: max-content;
+  margin-top: 5%;
+}
+.custom-margin-bottom {
+  margin-bottom: 6%;
+}
+.custom-badge {
+  position: absolute;
+  top: 24%;
+  left: 35%;
+  z-index: 2;
+}
+.custom-badge:hover {
+  transform: scale(1.2);
+}
+.custom-badge img {
+  width: 600px;
+  height: 380px;
+}
+.custom-guide img {
+  width: 100%;
+}
+.character-description {
+  font-size: 22px;
+}
+.number-badge {
+  height: auto;
+  width: auto;
+  position: absolute;
+}
+.number-badge:hover {
+  transform: scale(1.2);
+}
+.number-badge-1 {
+  top: 9%;
+  left: -4%;
+}
+.number-badge-2 {
+  top: 9%;
+  right: 21%;
+}
+.number-badge-3 {
+  top: 41%;
+  left: 25%;
+}
+.number-badge-4 {
+  bottom: 9.5%;
+  left: -4%;
+}
+.number-badge-5 {
+  bottom: 9.5%;
+  right: 17.5%;
+}
+
+/* Sadness Page badges */
+.sadness-page .number-badge-2 {
+  top: 9%;
+  right: 17%;
+}
+.sadness-page .number-badge-3 {
+  top: 41%;
+  left: 20%;
+}
+.sadness-page .number-badge-4 {
+  bottom: 13.5%;
+  left: -4%;
+}
+.sadness-page .number-badge-5 {
+  bottom: 13.5%;
+  right: 15%;
+}
+
+/* Fear Page badges */
+
+.fear-page .number-badge-1 {
+  top: 9.5%;
+}
+.fear-page .number-badge-2 {
+  top: 9.5%;
+  right: 15%;
+}
+.fear-page .number-badge-3 {
+  top: 41%;
+  left: 19.5%;
+}
+.fear-page .number-badge-5 {
+  bottom: 10%;
+  right: 28.5%;
+}
+/* Cards */
+.animation-card {
+  width: 100%;
+  height: auto;
+}
+footer img {
+  height: 700px;
+  width: auto;
+}
+.big-p {
+  font-size: 30px;
+}
+.anastasija-card {
+  background-color: #ffdceb;
+  color: #ad2783;
+}
+.helena-card {
+  background-color: #d6f1ff;
+  color: #2464ad;
+}
+.matea-card {
+  background-color: #d3b6d8;
+  color: #572c5d;
+}
+.helena-character img {
+  object-fit: contain;
+}
+.footer-img {
+  height: 500px;
+  margin-bottom: 5%;
+}
+.custom-width {
+  width: 85%;
+  margin: 0 auto;
+}
+.duolingo {
+  font-size: 40px;
+  top: 119%;
+  left: 66%;
+  font-weight: bold;
+  font-family: "MuseoModerno", serif;
+}
+.duolingo a,
+.ling a,
+.languages-50 a {
+  color: #1f559c;
+  text-decoration: underline !important;
+}
+.duolingo:hover,
+.ling:hover,
+.languages-50:hover {
+  transform: scale(1.15);
+}
+.ling {
+  font-size: 40px;
+  top: 151%;
+  left: 47.5%;
+  font-weight: bold;
+  font-family: "MuseoModerno", serif;
+}
+.languages-50 {
+  font-size: 40px;
+  top: 170%;
+  left: 63%;
+  font-weight: bold;
+  font-family: "MuseoModerno", serif;
+}
+.printable-map-text {
+  font-size: 30px;
+  left: 52%;
+  top: 265%;
+  color: #5c6b4c;
+  width: 30%;
+}
+.printable-map-text a {
+  color: #5c6b4c;
+  font-weight: bold;
+  text-decoration: underline !important;
+}
+.transport-info {
+  font-size: 30px;
+  top: 370%;
+  left: 53%;
+  color: #572c5d;
+  width: 30%;
+}
+.transport-info a {
+  color: #572c5d;
+  font-weight: bold;
+  text-decoration: underline !important;
+}
+.info-contact,
+.form {
+  flex-basis: 50%;
+}
+.contact {
+  height: max-content;
+}
+.form {
+  background-color: #d5f0d2;
+  border-radius: 40px;
+  border: 4px solid #5c6b4c;
+}
+.form-control {
+  border-radius: 40px !important;
+  background-color: #e3f4e1 !important;
+  border: 2px solid #5c6b4c !important;
+}
+.btn-submit {
+  width: 20%;
+  border-radius: 40px !important;
+  background-color: #5c6b4c !important;
+  color: #e3f4e1 !important;
+}
+.custom-padding {
+  padding: 4% 0;
+}
+.custom-3anime {
+  height: 200px;
+}
+.animations-container {
+  width: 100%;
+}
+.cover-image {
+  margin: 0 auto;
 }

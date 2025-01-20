@@ -11,21 +11,18 @@ import AboutUsPage from "./pages/AboutUsPage";
 
 function App() {
   return (
-    <>
-      <Router>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/emotions" element={<EmotionsPage />}>
-            <Route path="anger" element={<AngerPage />} />
-            <Route path="sadness" element={<SadnessPage />} />
-            <Route path="fear" element={<FearPage />} />
-          </Route>
-          <Route path="/guides" element={<GuidesPage />} />
-          <Route path="/professionalhelp" element={<ProfessionalHelpPage />} />
-          <Route path="/aboutus" element={<AboutUsPage />} />
-        </Routes>
-      </Router>
-    </>
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/emotions" element={<EmotionsPage />} />
+        <Route path="/emotions/anger" element={<AngerPage />} />
+        <Route path="/emotions/sadness" element={<SadnessPage />} />
+        <Route path="/emotions/fear" element={<FearPage />} />
+        <Route path="/guides" element={<GuidesPage />} />
+        <Route path="/professionalhelp" element={<ProfessionalHelpPage />} />
+        <Route path="/aboutus" element={<AboutUsPage />} />
+      </Routes>
+    </Router>
   );
 }
 
