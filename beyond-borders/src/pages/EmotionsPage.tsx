@@ -29,7 +29,6 @@ export default function EmotionsPage() {
         heading={emotionLinks}
         introText={`The process of "healing" different emotions`}
       />
-      <div className="intro-content text-center"></div>
       <div className="w-100 p-5 d-flex justify-content-center align-items-center">
         <CharacterCard
           mediaSrc="/Animations/anastasija_webp_bezloop.webp"
