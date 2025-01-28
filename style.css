@@ -201,3 +201,28 @@ footer p {
   color: #ffffff;
   margin-bottom: 0%;
 }
+
+/* --- Media Queries ---*/
+@media screen and (max-width: 768px) {
+  .wrap {
+    width: 90%;
+  }
+  .banner-content {
+    width: 90%;
+  }
+  .card-container-1,
+  .card-container-2 {
+    flex-direction: column;
+  }
+  .card {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+  .card-content-box {
+    padding-top: 0;
+  }
+  .form-container {
+    width: 100%;
+  }
+}
