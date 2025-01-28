@@ -123,7 +123,7 @@ button i {
 
 .navbar .logo {
   display: block;
-  margin-bottom: 60px;
+  /* margin-bottom: 60px; */
 }
 
 .navbar ul {
@@ -150,6 +150,16 @@ button i {
 
 .navbar ul li a i {
   margin-right: 5px;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 1.5rem;
+}
+.logo {
+  width: 60%;
 }
 /* !! */
 /* main-content styles */
@@ -361,9 +371,9 @@ h1 {
     padding-left: 0;
   }
 
-  .navbar .logo {
+  /* .navbar .logo {
     margin-bottom: 30px;
-  }
+  } */
 
   .main-row {
     display: block;
@@ -387,9 +397,12 @@ h1 {
   .navbar ul {
     display: none;
   }
-
-  .navbar .logo {
-    width: 100px;
+  .logo-container {
+    justify-content: start;
+    margin-left: 1rem;
+  }
+  .logo {
+    width: 35%;
   }
 
   .navbar hr {
