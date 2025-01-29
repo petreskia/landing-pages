@@ -9,6 +9,14 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap"
       rel="stylesheet"
     />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <!-- Custom CSS -->
     <link rel="stylesheet" href="./style.css" />
   </head>
@@ -19,35 +27,78 @@
       </div>
       <div class="banner-content">
         <div class="logo">
-          <img src="./assets/media3.png" alt="media-logo" />
+          <img src="./assets/logo.png" alt="logo-img" />
         </div>
         <h1 class="title">Esolve Media</h1>
         <p class="intro-text">Work with people that care.</p>
+
+        <nav class="nav-bar">
+          <div class="nav-link nav1">
+            <a href="#about" class="custom-links">
+              <i class="fa-solid fa-users"></i>
+              <h3>For Creators</h3>
+            </a>
+          </div>
+          <div class="nav-link nav2">
+            <a href="#" class="custom-links">
+              <i class="fa-brands fa-react"></i>
+              <h3>Marketing for small businesses</h3>
+            </a>
+          </div>
+          <div class="nav-link nav3">
+            <a href="#" class="custom-links">
+              <i class="fa-solid fa-video"></i>
+              <h3>Video & animation</h3>
+            </a>
+          </div>
+        </nav>
       </div>
-      <nav class="nav-bar">
-        <div class="nav-link nav1">
-          <a href="#"
-            ><div><img src="./assets/creators.png" alt="creators-icon" /></div>
-            <h2>For Creators</h2>
-          </a>
-        </div>
-        <div class="nav-link nav1">
-          <a href="#"
-            ><div>
-              <img src="./assets/marketing.png" alt="marketing-icon" />
-            </div>
-            <h2>Marketing for small businesses</h2>
-          </a>
-        </div>
-        <div class="nav-link nav3">
-          <a href="#"
-            ><div>
-              <img src="./assets/camera.png" alt="video-and-animation-icon" />
-            </div>
-            <h2>Video & animation</h2>
-          </a>
-        </div>
-      </nav>
     </header>
+    <main>
+      <section class="services-section">
+        <h2>Our Services</h2>
+        <div class="services-container">
+          <div class="service">
+            <div><i class="fa-regular fa-handshake"></i></div>
+            <h3>Beautifully Designed</h3>
+            <p>
+              We help creators grow their audience and monetize their content.
+            </p>
+          </div>
+          <div class="service">
+            <i class="fa-solid fa-chart-simple"></i>
+            <h3>Fully Responsive</h3>
+            <p>
+              We help small businesses grow their online presence and reach more
+              customers.
+            </p>
+          </div>
+          <div class="service">
+            <i class="fa-solid fa-desktop"></i>
+            <h3>Friendly Support</h3>
+            <p>
+              We create engaging video content that helps businesses connect
+              with their audience.
+            </p>
+          </div>
+        </div>
+      </section>
+      <section id="about" class="about-section">
+        <div class="wrapper">
+          <h2>About us</h2>
+          <p>
+            Think of the world's most iconic and successful brands. They are
+            easily recognizable, findable, and impactful. That's not by accident
+            - visibility and trust are the superpowers of exceptional design. We
+            believe that the human dimensions essential to start any successful
+            project and that this is where splendid emotional relationships
+            between the company and people are born. Intuition and strategy
+            integrate the research methodology that we also apply to traditional
+            media.
+          </p>
+          <img src="./assets//team.jpg" alt="team-img" />
+        </div>
+      </section>
+    </main>
   </body>
 </html>

@@ -3,6 +3,9 @@ body {
   margin: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
 h1,
 h2,
 h3,
@@ -10,34 +13,51 @@ h4,
 h5,
 h6,
 p {
-  margin-top: 0;
+  margin: 0;
 }
 
 img {
+  display: block;
   max-width: 100%;
 }
 
 a {
   text-decoration: none;
 }
+h2 {
+  font-size: 50px;
+  font-weight: 600;
+}
 /* Banner Section */
 .banner-section {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
+    url(./assets/background.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   height: 100vh;
   display: flex;
   flex-direction: column;
-  gap: 5rem;
+  color: antiquewhite;
 }
 .banner-content {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  gap: 1rem;
 }
 .logo img {
   width: 250px;
   height: 250px;
-  margin-bottom: 2rem;
+  margin: 0 auto;
 }
 .banner-top a {
   font-size: 30px;
   font-weight: 600;
+  padding-left: 2rem;
+  color: antiquewhite;
 }
 .title {
   font-size: 60px;
@@ -47,14 +67,76 @@ a {
   font-size: 40px;
   font-weight: 400;
 }
+
 /* Nav-Links */
 .nav-bar {
+  width: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
-  gap: 12rem;
-  margin-top: 2rem;
+  gap: 2rem;
+  margin-top: 5rem;
+}
+.nav-bar h3 {
+  font-size: 30px;
+  font-weight: 600;
+  color: antiquewhite;
+  padding-top: 1rem;
 }
 .nav-link {
   text-align: center;
+  flex-basis: 33.33%;
+}
+.nav-link i {
+  color: antiquewhite;
+  font-size: 80px;
+}
+
+/* Main Content */
+/* Services */
+.services-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  background-color: blanchedalmond;
+  padding: 2rem;
+}
+.services-section h2 {
+  font-size: 50px;
+  font-weight: 600;
+}
+.services-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  gap: 4rem;
+  padding: 2rem 0;
+}
+.service {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 1rem;
+  flex-basis: 33.33%;
+  padding: 0 1rem;
+}
+i {
+  font-size: 50px;
+}
+/* About Us Section */
+.about-section {
+  background-color: #f9f7fa;
+  padding: 2rem 0;
+}
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 2rem;
+  width: 80%;
+  margin: 0 auto;
 }
