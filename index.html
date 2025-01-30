@@ -25,6 +25,7 @@
     />
     <!-- Custom CSS -->
     <link rel="stylesheet" href="./style.css" />
+    <script src="./main.js" defer></script>
   </head>
   <body>
     <header class="banner-section">
@@ -36,8 +37,11 @@
           <img src="./assets/logo.png" alt="logo-img" />
         </div>
         <h1 class="title">Esolve Media</h1>
-        <p class="intro-text">Work with people that care</p>
-
+        <!-- Intro text in loop -->
+        <p class="intro-text">
+          Work
+          <span id="changingText" class="changing-text"></span>
+        </p>
         <nav class="nav-bar">
           <div class="nav-link nav1">
             <a href="#aboutSection" class="custom-links">
