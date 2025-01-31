@@ -15,4 +15,4 @@ changingText.textContent = phrases[0];
 setInterval(() => {
   changingText.textContent = phrases[index];
   index = (index + 1) % phrases.length;
-}, 2000); // 3 seconds interval for each change
+}, 1500); // 3 seconds interval for each change
