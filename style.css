@@ -41,6 +41,7 @@ h2 {
   font-size: 50px;
   font-weight: 600;
   font-family: "Montserrat", serif;
+  text-transform: uppercase;
 }
 .material-symbols-outlined {
   font-size: 48px; /* Change size */
@@ -48,7 +49,33 @@ h2 {
     /* Bold weight */ "GRAD" 200, /* Gradient */ "opsz" 48; /* Optical size */
   color: #e8eaed; /* Change color */
 }
-
+.material-symbols-outlined:hover {
+  color: white; /* Change hover color */
+  transform: scale(1.1);
+}
+.hover-scale:hover {
+  transition: transform 0.3s;
+  transform: scale(1.15);
+}
+.grey-text {
+  color: rgba(229, 227, 224, 0.595);
+}
+.custom-p {
+  font-size: 30px;
+}
+/* Custom button */
+.custom-btn {
+  background-color: rgba(229, 227, 224, 0.595);
+  color: white;
+  padding: 1rem 3rem;
+  border-radius: 5px;
+  font-weight: 600;
+  font-size: 20px;
+}
+.custom-btn:hover {
+  background-color: white;
+  color: black;
+}
 /* Banner Section */
 .banner-section {
   height: 100vh;
@@ -114,7 +141,7 @@ h2 {
   font-size: 24px;
   font-weight: 500;
   color: antiquewhite;
-  padding-top: 1rem;
+  padding: 1rem 0;
   font-family: "Montserrat", serif;
 }
 .nav-link {
@@ -125,11 +152,17 @@ h2 {
   color: antiquewhite;
   font-size: 60px;
 }
+.nav-link i:hover {
+  background: transparent;
+  filter: drop-shadow(0 0 30px rgba(255, 255, 255, 255)); /* Red glow */
+  mix-blend-mode: screen; /* Helps with transparency */
+}
 .nav-link p {
   width: 60%;
   margin: 0 auto;
   color: rgba(229, 227, 224, 0.595);
 }
+
 /* Main Content */
 /* Services */
 .services-section {
@@ -144,11 +177,13 @@ h2 {
   background-color: black;
   color: white;
   font-family: "Montserrat", serif;
+  padding: 2rem 0;
 }
 .services-section h3 {
   font-weight: 500;
   font-size: 20px;
 }
+
 .services-container {
   display: flex;
   flex-wrap: wrap;
@@ -176,16 +211,17 @@ h2 {
 }
 .service-card p {
   font-weight: 300;
+  color: rgba(229, 227, 224, 0.595);
 }
-i {
-  font-size: 50px;
+.service-card span,
+.service-card a {
+  color: rgba(229, 227, 224, 0.595);
 }
 /* About Us Section */
 .about-section {
-  background-color: #f9f7fa;
   padding: 4rem 0;
   font-family: "Montserrat", serif;
-  color: #023047;
+  color: black;
 }
 .about-section p {
   width: 80%;
@@ -197,8 +233,7 @@ i {
 .video-animation-section {
   padding: 4rem 0;
   text-align: center;
-  background-color: #023047;
-  color: #c2e8e7;
+  color: black;
 }
 .video-container {
   display: flex;
@@ -218,4 +253,14 @@ i {
 .video p {
   width: 75%;
   margin: 0 auto;
+}
+/* Footer */
+.footer {
+  display: flex;
+}
+.contact-form {
+  width: 100vw;
+}
+.contact-form img {
+  width: 100%;
 }

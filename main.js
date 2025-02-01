@@ -1,4 +1,4 @@
-// JavaScript for dynamic text change (add this to a <script> tag or a JavaScript file)
+// JavaScript for dynamic text change in the banner
 const changingText = document.getElementById("changingText");
 const phrases = [
   "with people that care",
