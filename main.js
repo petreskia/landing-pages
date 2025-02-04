@@ -17,7 +17,7 @@ setInterval(() => {
   index = (index + 1) % phrases.length;
 }, 1500); // 3 seconds interval for each change
 
-// Slider
+// About Us
 const slides = document.querySelectorAll(".slide");
 const prevBtn = document.querySelector(".prev");
 const nextBtn = document.querySelector(".next");

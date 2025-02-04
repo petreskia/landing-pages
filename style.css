@@ -217,39 +217,140 @@ h2 {
   color: rgba(229, 227, 224, 0.595);
 }
 /* About Us Section */
+/* About Us Section */
 .about-section {
   font-family: "Montserrat", serif;
   color: black;
+  text-align: center;
+  padding: 40px 20px;
 }
+
 .about-section p {
   width: 80%;
-  margin: 2rem 0;
   line-height: 2;
+}
+
+/* Carousel */
+.carousel-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin: 20px 0;
+}
+
+/* Image Slider */
+.carousel-container {
+  position: relative;
+}
+.carousel-slider {
+  width: 300px;
+  height: 350px;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.carousel {
+  display: flex;
+  width: 100%;
+  transition: transform 0.4s ease-in-out;
+}
+
+.slide {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 10px;
+  display: none;
+}
+
+.slide.active {
+  display: block;
+}
+
+/* Navigation Buttons - Carousel */
+.prev,
+.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: grey;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 24px;
+}
+
+.prev {
+  left: -50px;
+}
+
+.next {
+  right: -50px;
+}
+
+/* Team Info */
+.team-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  max-width: 400px;
+}
+
+.team-info h3 {
+  font-size: 24px;
+  margin-bottom: 5px;
+}
+
+.team-info p {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.4;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .carousel-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .team-info {
+    text-align: center;
+  }
+}
+
+.team-image {
+  width: 100%;
+  max-width: 600px;
+  margin-top: 20px;
+  border-radius: 10px;
 }
 
 /* Video & Animation Section */
 .video-animation-section {
-  padding: 4rem 0;
-  text-align: center;
   background-color: black;
   color: white;
 }
 .video-container {
   display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem 0;
+  justify-content: center;
   flex-wrap: wrap;
-  width: 90%;
+  width: 100%;
   margin: 0 auto;
-  row-gap: 2rem;
-  margin-top: 4rem;
 }
-.video video {
-  width: 97%;
-  border-radius: 40px;
-  border: 2px solid white;
+.video-container video {
+  width: 100%;
 }
-.video {
-  flex-basis: 50%;
-}
+
 .video p {
   width: 75%;
   margin: 0 auto;
@@ -421,57 +522,4 @@ select {
     top: -10;
     left: 50%;
   }
-}
-/* Carousel */
-.carousel-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.carousel-slider {
-  position: relative;
-  width: 300px;
-  overflow: hidden;
-}
-
-.carousel {
-  display: flex;
-  transition: transform 0.4s ease-in-out;
-}
-
-.slide {
-  width: 300px;
-  height: 350px;
-  object-fit: cover;
-  border-radius: 10px;
-  display: none;
-}
-
-.slide.active {
-  display: block;
-}
-
-.prev,
-.next {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(0, 0, 0, 0.5);
-  color: white;
-  border: none;
-  padding: 10px;
-  cursor: pointer;
-  border-radius: 50%;
-}
-
-.prev {
-  left: 10px;
-}
-
-.next {
-  right: 10px;
-}
-
-.team-info {
-  max-width: 400px;
 }
