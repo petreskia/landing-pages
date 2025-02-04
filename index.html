@@ -49,7 +49,8 @@
       </video>
       <!-- Banner Top - Icon -->
       <div class="banner-top">
-        <div><a href="index.html">Esolve Media</a></div>
+        <div><a href="index.html" class="icon">Esolve Media</a></div>
+        <div><a href="#contactSection" class="link-to-contact">Contact</a></div>
       </div>
       <!-- Banner Central Part - Content -->
       <div class="banner-content">
@@ -449,6 +450,8 @@
             action="https://formsubmit.co/petreskia997@gmail.com"
             method="POST"
             class="custom-form"
+            id="contactForm"
+            target="hidden_iframe"
           >
             <div class="form-inputs">
               <input type="text" name="name" placeholder="Name" required />
@@ -462,35 +465,29 @@
                 placeholder="Message"
                 required
               ></textarea>
-              <label for="category">Choose a service:</label>
             </div>
+            <label for="category">Choose a service:</label>
             <select id="category" name="category" required>
               <option value="">-- Select a category --</option>
-              <option value="">For creators</option>
+              <option value="for-creators">For creators</option>
               <option value="video-animation">Video & Animation</option>
               <option value="marketing-business">
                 Marketing for Businesses
               </option>
             </select>
-            <!-- Hidden fields for better user experience -->
-            <input
-              type="hidden"
-              name="_next"
-              value="https://yourwebsite.com/thank-you"
-            />
-            <input type="hidden" name="_captcha" value="false" />
+            <iframe name="hidden_iframe" style="display: none"></iframe>
 
+            <!-- Hidden fields for better email delivery -->
+            <input type="hidden" name="_captcha" value="false" />
             <button type="submit" class="custom-btn">Submit</button>
           </form>
         </div>
       </section>
       <section class="contact-section">
         <div class="contact-informations">
-          <div class="contact">
-            <h3>Our contact</h3>
-            <p>contact@esolvemedia.com</p>
-            <p>+47 477 07 582</p>
-          </div>
+          <h3>Our contact</h3>
+          <p>contact@esolvemedia.com</p>
+          <p>+47 477 07 582</p>
         </div>
         <div class="social-media">
           <div>

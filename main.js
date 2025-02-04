@@ -69,3 +69,15 @@ prevBtn.addEventListener("click", () => {
 
 // Initialize first slide
 updateSlide(currentIndex);
+
+// Handling Form
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("contactForm");
+
+  form.addEventListener("submit", (e) => {
+    setTimeout(() => {
+      alert("Thank you for reaching out! We’ll get back to you soon!");
+      form.reset(); // Clears the form after submission
+    }, 1000); // Delay to ensure the form is processed
+  });
+});

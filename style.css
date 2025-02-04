@@ -38,7 +38,7 @@ a {
   text-align: center;
   width: 90%;
   margin: 0 auto;
-  padding: 1rem 0;
+  padding: 3rem 0;
   gap: 1rem;
 }
 h2 {
@@ -51,10 +51,10 @@ h2 {
   font-size: 48px; /* Change size */
   font-variation-settings: "FILL" 1, /* Filled icon */ "wght" 700,
     /* Bold weight */ "GRAD" 200, /* Gradient */ "opsz" 48; /* Optical size */
-  color: #e8eaed; /* Change color */
+  color: #e8eaed;
 }
 .material-symbols-outlined:hover {
-  color: white; /* Change hover color */
+  color: white;
   transform: scale(1.1);
 }
 .hover-scale:hover {
@@ -113,10 +113,24 @@ h2 {
   margin: 0 auto;
 }
 
-.banner-top a {
+.banner-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+}
+
+.banner-top .icon {
   font-size: 30px;
   font-weight: 600;
   color: antiquewhite;
+}
+.link-to-contact {
+  font-size: 25px;
+  color: rgba(229, 227, 224, 0.595);
+}
+.link-to-contact:hover {
+  color: white;
 }
 .title {
   font-size: 90px;
@@ -176,7 +190,6 @@ h2 {
   background-color: black;
   color: white;
   font-family: "Montserrat", serif;
-  padding: 2rem 0;
 }
 .services-section h3 {
   font-weight: 500;
@@ -222,9 +235,13 @@ h2 {
   font-family: "Montserrat", serif;
   color: black;
   text-align: center;
-  padding: 40px 20px;
 }
-
+.about-section h2 {
+  margin-bottom: 2rem;
+}
+.about-section h3 {
+  font-weight: 400;
+}
 .about-section p {
   width: 80%;
   line-height: 2;
@@ -236,14 +253,11 @@ h2 {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  gap: 20px;
+  row-gap: 2rem;
+  position: relative;
   margin: 20px 0;
 }
 
-/* Image Slider */
-.carousel-container {
-  position: relative;
-}
 .carousel-slider {
   width: 300px;
   height: 350px;
@@ -284,11 +298,11 @@ h2 {
 }
 
 .prev {
-  left: -50px;
+  left: -35px;
 }
 
 .next {
-  right: -50px;
+  right: -35px;
 }
 
 /* Team Info */
@@ -323,15 +337,11 @@ h2 {
   .team-info {
     text-align: center;
   }
+  .prev,
+  .next {
+    display: none;
+  }
 }
-
-.team-image {
-  width: 100%;
-  max-width: 600px;
-  margin-top: 20px;
-  border-radius: 10px;
-}
-
 /* Video & Animation Section */
 .video-animation-section {
   background-color: black;
@@ -375,11 +385,13 @@ h2 {
   display: flex;
   width: 80%;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 2rem 0;
+  gap: 2rem;
 }
 .contact-informations {
   display: flex;
-  justify-content: space-evenly;
+  flex-direction: column;
+  justify-content: center;
   flex-basis: 50%;
   color: rgba(229, 227, 224, 0.595);
 }
@@ -446,21 +458,32 @@ select {
 }
 
 /* Responsive Styles */
-
 @media only screen and (max-width: 425px) {
+  .logo img {
+    width: 200px;
+    height: 200px;
+  }
+  .link-to-contact,
+  .banner-top .icon {
+    font-size: 24px;
+  }
+}
+
+@media only screen and (max-width: 780px) {
   .title {
     font-size: 50px;
     text-align: center;
   }
   .intro-text {
     display: flex;
-    flex-direction: column; /* Stack elements vertically */
-    align-items: center; /* Center align */
-    text-align: center; /* Ensure text is centered */
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-size: 24px;
   }
 
   .changing-text {
-    display: block; /* Force the phrase onto a new line */
+    display: block;
     min-height: 80px;
   }
   .nav-bar {
@@ -506,18 +529,8 @@ select {
     flex-basis: 50%;
   }
 }
-/* @media only screen and (min-width: 450px) and (max-width: 700px) {
-  .contact-form {
-    top: -10;
-    left: 50%;
-  }
-} */
 
 @media only screen and (max-width: 1200px) {
-  /* .map-section {
-    display: flex;
-    justify-content: center;
-  } */
   .contact-form {
     top: -10;
     left: 50%;
