@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: "Poppins", sans-serif;
   margin: 0;
@@ -79,7 +83,7 @@ h2 {
 /* Banner Section */
 .banner-section {
   height: 100vh;
-  width: 100%;
+  width: 100vw;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -112,7 +116,6 @@ h2 {
 .banner-top a {
   font-size: 30px;
   font-weight: 600;
-  padding-left: 2rem;
   color: antiquewhite;
 }
 .title {
@@ -170,10 +173,6 @@ h2 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* Prev colors */
-  /* background-color: #c2e8e7;
-  color: #023047; */
-  /* New colors */
   background-color: black;
   color: white;
   font-family: "Montserrat", serif;
@@ -219,7 +218,6 @@ h2 {
 }
 /* About Us Section */
 .about-section {
-  padding: 4rem 0;
   font-family: "Montserrat", serif;
   color: black;
 }
@@ -320,7 +318,7 @@ h2 {
 .form-inputs {
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  gap: 2rem;
 }
 
 .custom-form button {
@@ -331,7 +329,7 @@ h2 {
 }
 .contact-form h3 {
   color: black;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
 }
 input,
 textarea,
@@ -342,4 +340,83 @@ select {
 }
 select {
   margin-bottom: 5rem;
+}
+
+/* Responsive Styles */
+
+@media only screen and (max-width: 425px) {
+  .title {
+    font-size: 50px;
+    text-align: center;
+  }
+  .intro-text {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Center align */
+    text-align: center; /* Ensure text is centered */
+  }
+
+  .changing-text {
+    display: block; /* Force the phrase onto a new line */
+    min-height: 80px;
+  }
+  .nav-bar {
+    gap: 0;
+    margin-top: 2rem;
+  }
+  .nav-bar h3 {
+    font-size: 12px;
+  }
+  .nav-link i {
+    font-size: 50px;
+  }
+  .nav-link p {
+    display: none;
+  }
+  h2 {
+    font-size: 35px;
+  }
+  .services-container {
+    flex-direction: column;
+  }
+  .video-container {
+    flex-direction: column;
+  }
+  .map-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .contact-form {
+    position: static;
+    width: auto;
+  }
+  .contact-section {
+    flex-direction: column;
+    width: 100%;
+  }
+  .contact-informations {
+    justify-content: space-between;
+  }
+  .address,
+  .contact {
+    flex-basis: 50%;
+  }
+}
+/* @media only screen and (min-width: 450px) and (max-width: 700px) {
+  .contact-form {
+    top: -10;
+    left: 50%;
+  }
+} */
+
+@media only screen and (max-width: 1200px) {
+  /* .map-section {
+    display: flex;
+    justify-content: center;
+  } */
+  .contact-form {
+    top: -10;
+    left: 50%;
+  }
 }
