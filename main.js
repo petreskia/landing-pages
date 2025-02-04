@@ -17,13 +17,13 @@ setInterval(() => {
   index = (index + 1) % phrases.length;
 }, 1500); // 3 seconds interval for each change
 
-// About Us - Slider
 const slides = document.querySelectorAll(".slide");
 const prevBtn = document.querySelector(".prev");
 const nextBtn = document.querySelector(".next");
 const teamName = document.getElementById("team-name");
 const teamRole = document.getElementById("team-role");
 const teamDescription = document.getElementById("team-description");
+const indicators = document.querySelectorAll(".indicator");
 
 const teamData = [
   {
@@ -55,6 +55,11 @@ function updateSlide(index) {
   teamName.textContent = teamData[index].name;
   teamRole.textContent = teamData[index].role;
   teamDescription.textContent = teamData[index].description;
+
+  // Update indicators
+  indicators.forEach((indicator, i) => {
+    indicator.classList.toggle("active", i === index);
+  });
 }
 
 nextBtn.addEventListener("click", () => {
@@ -69,7 +74,6 @@ prevBtn.addEventListener("click", () => {
 
 // Add touch swipe functionality
 let touchStartX = 0;
-
 const carouselSlider = document.getElementById("carouselSlider");
 
 carouselSlider.addEventListener("touchstart", (e) => {
@@ -91,8 +95,32 @@ carouselSlider.addEventListener("touchend", (e) => {
   }
 });
 
+// Handle clicks on the left and right sides of the image
+carouselSlider.addEventListener("click", (e) => {
+  const carouselWidth = carouselSlider.offsetWidth;
+  const clickPosition = e.clientX;
+
+  if (clickPosition < carouselWidth / 4) {
+    // Clicked on the left side (previous image)
+    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+    updateSlide(currentIndex);
+  } else if (clickPosition > (carouselWidth * 3) / 4) {
+    // Clicked on the right side (next image)
+    currentIndex = (currentIndex + 1) % slides.length;
+    updateSlide(currentIndex);
+  }
+});
+
 // Initialize first slide
 updateSlide(currentIndex);
+
+// Handle indicator clicks
+indicators.forEach((indicator) => {
+  indicator.addEventListener("click", (e) => {
+    currentIndex = parseInt(e.target.getAttribute("data-index"));
+    updateSlide(currentIndex);
+  });
+});
 
 // Handling Form
 document.addEventListener("DOMContentLoaded", () => {

@@ -264,6 +264,27 @@ h2 {
   overflow: hidden;
   border-radius: 10px;
 }
+.carousel-slider {
+  position: relative;
+}
+
+.carousel-slider::before,
+.carousel-slider::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 10%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.carousel-slider::before {
+  left: 0;
+}
+
+.carousel-slider::after {
+  right: 0;
+}
 
 .carousel {
   display: flex;
@@ -303,6 +324,24 @@ h2 {
 
 .next {
   right: -35px;
+}
+.carousel-indicators {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.indicator {
+  width: 10px;
+  height: 10px;
+  background-color: #ccc;
+  border-radius: 50%;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.indicator.active {
+  background-color: #333;
 }
 
 /* Team Info */
