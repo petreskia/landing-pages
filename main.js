@@ -17,7 +17,7 @@ setInterval(() => {
   index = (index + 1) % phrases.length;
 }, 1500); // 3 seconds interval for each change
 
-// About Us
+// About Us - Slider
 const slides = document.querySelectorAll(".slide");
 const prevBtn = document.querySelector(".prev");
 const nextBtn = document.querySelector(".next");
@@ -65,6 +65,30 @@ nextBtn.addEventListener("click", () => {
 prevBtn.addEventListener("click", () => {
   currentIndex = (currentIndex - 1 + slides.length) % slides.length;
   updateSlide(currentIndex);
+});
+
+// Add touch swipe functionality
+let touchStartX = 0;
+
+const carouselSlider = document.getElementById("carouselSlider");
+
+carouselSlider.addEventListener("touchstart", (e) => {
+  touchStartX = e.touches[0].clientX;
+});
+
+carouselSlider.addEventListener("touchend", (e) => {
+  const touchEndX = e.changedTouches[0].clientX;
+  const touchDiff = touchStartX - touchEndX;
+
+  if (touchDiff > 50) {
+    // Swipe left (next image)
+    currentIndex = (currentIndex + 1) % slides.length;
+    updateSlide(currentIndex);
+  } else if (touchDiff < -50) {
+    // Swipe right (previous image)
+    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+    updateSlide(currentIndex);
+  }
 });
 
 // Initialize first slide
