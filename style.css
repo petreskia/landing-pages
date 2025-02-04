@@ -83,7 +83,7 @@ h2 {
 /* Banner Section */
 .banner-section {
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -231,7 +231,8 @@ h2 {
 .video-animation-section {
   padding: 4rem 0;
   text-align: center;
-  color: black;
+  background-color: black;
+  color: white;
 }
 .video-container {
   display: flex;
@@ -244,6 +245,7 @@ h2 {
 .video video {
   width: 97%;
   border-radius: 40px;
+  border: 2px solid white;
 }
 .video {
   flex-basis: 50%;
@@ -419,4 +421,57 @@ select {
     top: -10;
     left: 50%;
   }
+}
+/* Carousel */
+.carousel-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.carousel-slider {
+  position: relative;
+  width: 300px;
+  overflow: hidden;
+}
+
+.carousel {
+  display: flex;
+  transition: transform 0.4s ease-in-out;
+}
+
+.slide {
+  width: 300px;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 10px;
+  display: none;
+}
+
+.slide.active {
+  display: block;
+}
+
+.prev,
+.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
+
+.team-info {
+  max-width: 400px;
 }
