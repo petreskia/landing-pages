@@ -234,7 +234,8 @@ h2 {
 /* About Us Section */
 .about-section {
   font-family: "Montserrat", serif;
-  color: black;
+  background-color: black;
+  color: white;
   text-align: center;
 }
 .about-section h2 {
@@ -363,7 +364,7 @@ h2 {
 
 .team-info p {
   font-size: 16px;
-  color: #555;
+  color: #c6c3c3;
   line-height: 1.4;
 }
 
