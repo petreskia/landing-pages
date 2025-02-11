@@ -89,6 +89,12 @@
   width: 300px;
   border-radius: 50%;
 }
+@media (max-width: 425px) {
+  .banner {
+    width: 100%;
+    background-position: center;
+  }
+}
 @media (min-width: 768px) {
   .profile-photo {
     bottom: 40%;
