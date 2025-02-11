@@ -21,7 +21,7 @@
 }
 /* Carousel */
 .carousel img {
-  height: 60vh;
+  height: calc(100vh - 56px);
 }
 .carousel-caption {
   bottom: auto;
@@ -74,18 +74,19 @@
 }
 /* About Us page */
 .banner {
-  background-image: url(./images/image1.jpg);
+  background-image: url(./images/ales-nesetril-Im7lZjxeLhg-unsplash.jpg);
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 50vh;
+  height: 65vh;
 }
 .banner-inner {
+  width: 60%;
   margin: 0 auto;
 }
 .profile-photo img {
-  height: 350px;
-  width: 350px;
+  height: 300px;
+  width: 300px;
   border-radius: 50%;
 }
 @media (min-width: 768px) {
@@ -113,6 +114,7 @@
   background-color: #343a40;
   color: #ffffff;
 }
+
 .accordion-button::after {
   content: "" !important;
   background-image: none !important;
@@ -126,4 +128,7 @@
   height: 150px;
   width: 150px;
   border-radius: 50%;
+}
+.blog-img {
+  height: 280px;
 }
