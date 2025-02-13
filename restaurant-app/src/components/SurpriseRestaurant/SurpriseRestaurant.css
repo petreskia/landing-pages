@@ -1,0 +1,16 @@
+.surprise-restaurant {
+  text-align: center;
+  padding: 2rem 0;
+  border-bottom: 2px solid rgb(242, 240, 240);
+}
+.surprise-restaurant button {
+  width: 100%;
+  padding: 0.7rem;
+  background-color: green;
+  color: white;
+  margin-top: 1rem;
+  border-radius: 5px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+}

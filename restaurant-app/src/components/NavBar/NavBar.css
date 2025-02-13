@@ -1,0 +1,15 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem 0;
+  border-bottom: 2px solid rgb(242, 240, 240);
+}
+i,
+h1 {
+  cursor: pointer;
+}
+h1 {
+  font-size: 18px;
+  text-transform: uppercase;
+}

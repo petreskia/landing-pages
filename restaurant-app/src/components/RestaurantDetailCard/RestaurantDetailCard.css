@@ -1,0 +1,16 @@
+.detail-card {
+  background-color: rgb(243, 240, 240);
+  border-radius: 10px;
+}
+.detail-card img {
+  width: 100%;
+  border-radius: 10px 10px 0 0;
+}
+.card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  text-align: start;
+  padding: 1rem;
+  margin: 0;
+}
