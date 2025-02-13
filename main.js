@@ -133,16 +133,3 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 1000); // Delay to ensure the form is processed
   });
 });
-
-// Get the iframe element
-const iframe = document.getElementById("vimeo-video");
-
-// Listen for the play event and unmute the video once it starts
-iframe.onload = () => {
-  const player = new Vimeo.Player(iframe); // Initialize the Vimeo player
-
-  // Unmute when the video plays
-  player.on("play", function () {
-    player.setVolume(1); // Set volume to 100% (unmuted)
-  });
-};
