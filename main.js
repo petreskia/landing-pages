@@ -42,6 +42,18 @@ const teamData = [
     description:
       "Mike specializes in building modern, high-performance websites.",
   },
+  {
+    name: "Abdi",
+    role: "Photographer/Cinematographer",
+    description:
+      "Mike specializes in building modern, high-performance websites.",
+  },
+  {
+    name: "Erfan",
+    role: "Operations",
+    description:
+      "Mike specializes in building modern, high-performance websites.",
+  },
 ];
 
 let currentIndex = 0;

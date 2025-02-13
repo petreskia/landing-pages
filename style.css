@@ -233,7 +233,6 @@ h2 {
   color: rgba(229, 227, 224, 0.595);
 }
 /* About Us Section */
-/* About Us Section */
 .about-section {
   font-family: "Montserrat", serif;
   background-color: black;
@@ -271,7 +270,6 @@ h2 {
 .carousel-slider {
   position: relative;
 }
-
 .carousel-slider::before,
 .carousel-slider::after {
   content: "";
