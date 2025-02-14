@@ -203,11 +203,11 @@ h2 {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: start;
+  align-items: stretch;
   border: 2px dashed white;
   padding: 1rem;
 }
-.service-card {
+/* .service-card {
   flex-basis: 33.33%;
 }
 .service-card-wrapper {
@@ -232,6 +232,97 @@ h2 {
 .service-card a {
   color: rgba(229, 227, 224, 0.595);
 }
+
+.extra-content {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, opacity 0.3s ease;
+}
+
+.read-more {
+  display: inline-block;
+  font-size: 14px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.read-more:hover {
+  color: rgba(229, 227, 224, 0.9);
+}
+
+.service-card:hover .extra-content {
+  max-height: 200px;
+  opacity: 1;
+} */
+
+.service-card {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 33.33%;
+  min-height: 100%;
+}
+
+.service-card:hover {
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.264);
+}
+
+.service-card-wrapper {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: start;
+  gap: 1rem;
+  height: 100%;
+}
+
+.service-card-top {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.service-card h3 {
+  color: #e5e3e0;
+  margin: 0;
+}
+
+.service-card p {
+  font-weight: 300;
+  color: rgba(229, 227, 224, 0.8);
+  margin: 0;
+}
+
+/* .service-card .material-icons {
+  color: rgba(229, 227, 224, 0.8);
+  font-size: 24px;
+} */
+
+.extra-content {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, opacity 0.3s ease;
+}
+
+.read-more {
+  align-self: flex-start;
+  background: none;
+  border: none;
+  color: rgba(229, 227, 224, 0.8);
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 0;
+  transition: color 0.3s ease;
+}
+
+.read-more:hover {
+  color: rgba(229, 227, 224, 1);
+}
+
 /* About Us Section */
 .about-section {
   font-family: "Montserrat", serif;

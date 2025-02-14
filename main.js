@@ -145,3 +145,21 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 1000); // Delay to ensure the form is processed
   });
 });
+// card
+document.querySelectorAll(".read-more").forEach((button) => {
+  button.addEventListener("click", function () {
+    const serviceCard = this.closest(".service-card");
+    const extraContent = serviceCard.querySelector(".extra-content");
+    const button = this;
+
+    if (extraContent.style.maxHeight) {
+      extraContent.style.maxHeight = null;
+      extraContent.style.opacity = "0";
+      button.textContent = "Read More";
+    } else {
+      extraContent.style.maxHeight = extraContent.scrollHeight + "px";
+      extraContent.style.opacity = "1";
+      button.textContent = "Read Less";
+    }
+  });
+});
