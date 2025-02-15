@@ -140,7 +140,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 1000); // Delay to ensure the form is processed
   });
 });
-// card
+// Cards - Extra content
 document.querySelectorAll(".read-more").forEach((button) => {
   button.addEventListener("click", function () {
     const serviceCard = this.closest(".service-card");
