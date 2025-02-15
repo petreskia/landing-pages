@@ -17,42 +17,38 @@ setInterval(() => {
   index = (index + 1) % phrases.length;
 }, 1500); // 3 seconds interval for each change
 
+// Image Slider
 const slides = document.querySelectorAll(".slide");
 const prevBtn = document.querySelector(".prev");
 const nextBtn = document.querySelector(".next");
 const teamName = document.getElementById("team-name");
 const teamRole = document.getElementById("team-role");
-const teamDescription = document.getElementById("team-description");
 const indicators = document.querySelectorAll(".indicator");
 
 const teamData = [
   {
     name: "Eskil",
     role: "Marketing",
-    description: "John is a talented designer with 10 years of experience.",
   },
   {
     name: "William",
     role: "Director/Producer",
-    description: "Jane ensures all projects run smoothly and on time.",
   },
   {
     name: "Oskar",
     role: "Cinematographer/VFX Artist",
-    description:
-      "Mike specializes in building modern, high-performance websites.",
   },
   {
     name: "Abdi",
     role: "Photographer/Cinematographer",
-    description:
-      "Mike specializes in building modern, high-performance websites.",
   },
   {
     name: "Erfan",
     role: "Operations",
-    description:
-      "Mike specializes in building modern, high-performance websites.",
+  },
+  {
+    name: "Robin",
+    role: "Operations",
   },
 ];
 
@@ -66,7 +62,6 @@ function updateSlide(index) {
   // Update text content
   teamName.textContent = teamData[index].name;
   teamRole.textContent = teamData[index].role;
-  teamDescription.textContent = teamData[index].description;
 
   // Update indicators
   indicators.forEach((indicator, i) => {
