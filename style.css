@@ -87,7 +87,7 @@ h2 {
   position: relative;
   display: flex;
   flex-direction: column;
-  color: antiquewhite;
+  color: white;
 }
 .background-video {
   position: absolute;
@@ -126,7 +126,7 @@ h2 {
 .banner-top .icon {
   font-size: 30px;
   font-weight: 600;
-  color: antiquewhite;
+  color: white;
 }
 .link-to-contact {
   font-size: 25px;
@@ -160,7 +160,7 @@ h2 {
 .nav-bar h3 {
   font-size: 24px;
   font-weight: 500;
-  color: antiquewhite;
+  color: white;
   padding: 1rem 0;
   font-family: "Montserrat", serif;
 }
@@ -169,7 +169,7 @@ h2 {
   flex-basis: 33.33%;
 }
 .nav-link i {
-  color: antiquewhite;
+  color: white;
   font-size: 60px;
 }
 .nav-link i:hover {
