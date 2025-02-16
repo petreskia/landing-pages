@@ -207,56 +207,6 @@ h2 {
   border: 2px dashed white;
   padding: 1rem;
 }
-/* .service-card {
-  flex-basis: 33.33%;
-}
-.service-card-wrapper {
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  text-align: start;
-  min-height: max-content;
-  line-height: 1.5;
-  gap: 1rem;
-}
-.service-card-top {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-.service-card p {
-  font-weight: 300;
-  color: rgba(229, 227, 224, 0.595);
-}
-.service-card span,
-.service-card a {
-  color: rgba(229, 227, 224, 0.595);
-}
-
-.extra-content {
-  max-height: 0;
-  opacity: 0;
-  overflow: hidden;
-  transition: max-height 0.4s ease, opacity 0.3s ease;
-}
-
-.read-more {
-  display: inline-block;
-  font-size: 14px;
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s ease;
-}
-
-.read-more:hover {
-  color: rgba(229, 227, 224, 0.9);
-}
-
-.service-card:hover .extra-content {
-  max-height: 200px;
-  opacity: 1;
-} */
-
 .service-card {
   display: flex;
   flex-direction: column;
@@ -391,7 +341,6 @@ h2 {
 .slide.active {
   display: block;
 }
-
 /* Navigation Buttons - Carousel */
 .prev,
 .next {
@@ -434,13 +383,12 @@ h2 {
 
 /* Team Info */
 .team-info {
-  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 1rem;
-  max-width: 400px;
+  width: 300px;
 }
 
 .team-info h3 {

@@ -32,11 +32,11 @@ const teamData = [
   },
   {
     name: "William",
-    role: "Director/Producer",
+    role: "Producer/Editor/VFX Artist",
   },
   {
     name: "Oskar",
-    role: "Cinematographer/VFX Artist",
+    role: "Director/Cinematographer",
   },
   {
     name: "Abdi",
