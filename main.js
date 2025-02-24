@@ -189,10 +189,12 @@ document.addEventListener("DOMContentLoaded", () => {
     let touchEndY = 0;
 
     container.addEventListener("touchstart", (event) => {
+      stopScrollPropagation(event);
       touchStartY = event.touches[0].clientY;
     });
 
     container.addEventListener("touchend", (event) => {
+      stopScrollPropagation(event);
       if (extraContentOpen) return; //Disable scroll if extra content is open
       touchEndY = event.changedTouches[0].clientY;
       if (touchStartY > touchEndY + 50) {
