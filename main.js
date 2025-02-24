@@ -320,22 +320,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
       container.addEventListener("touchend", (event) => {
         touchEndX = event.changedTouches[0].clientX;
-        if (extraContentOpen || Math.abs(touchStartX - touchEndX) < 50) return;
-
-        if (touchStartX > touchEndX + 50) {
-          scrollToNextCard(1);
-        } else if (touchStartX < touchEndX - 50) {
-          scrollToNextCard(-1);
+        if (Math.abs(touchStartX - touchEndX) > 50) {
+          if (touchStartX > touchEndX + 50) {
+            scrollToNextCard(1);
+          } else if (touchStartX < touchEndX - 50) {
+            scrollToNextCard(-1);
+          }
         }
       });
 
       // Allow scrolling even when extra content is open
       container.addEventListener("touchmove", (event) => {
-        if (extraContentOpen) {
-          event.stopPropagation(); // Allow scrolling even when extra content is open
-        } else {
-          event.preventDefault(); // Prevent default scrolling when extra content is closed
-        }
+        // Always allow touchmove for horizontal scrolling
+        event.stopPropagation();
       });
     }
 
