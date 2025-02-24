@@ -279,32 +279,30 @@ h2 {
   font-weight: 600;
   display: none; /* Hide by default */
 }
-@media (max-width: 435px) {
-  .scroll-arrow {
-    position: absolute;
-    bottom: 12px; /* Align with card number */
-    right: 50px; /* Place it next to the card number */
-    font-size: 18px;
-    color: rgba(229, 227, 224, 0.8);
-    animation: bounce 1.5s infinite;
-    display: block;
-  }
-
-  @keyframes bounce {
-    0%,
-    100% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(2px);
-    }
-  }
+.scroll-arrow-left,
+.scroll-arrow-right {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 24px;
+  color: rgba(229, 227, 224, 0.8);
+  cursor: pointer;
+  user-select: none;
+  display: none; /* Initially hidden */
 }
 
-/* Hide the arrow by default on desktop */
-@media (min-width: 436px) {
-  .scroll-arrow {
-    display: none !important;
+.scroll-arrow-left {
+  left: 0;
+}
+
+.scroll-arrow-right {
+  right: 0;
+}
+
+@media (min-width: 769px) {
+  .scroll-arrow-left,
+  .scroll-arrow-right {
+    display: block; /* Always show arrows on desktop */
   }
 }
 

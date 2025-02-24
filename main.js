@@ -142,90 +142,6 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // Services Card Slider
-// document.addEventListener("DOMContentLoaded", () => {
-//   function initializeServicesContainer(container) {
-//     const serviceCards = container.querySelectorAll(".service-card");
-//     let currentIndex = 0;
-//     const totalCards = serviceCards.length;
-//     let extraContentOpen = false; // Flag to track extra content state
-//     const isMobile = window.matchMedia("(max-width: 768px)").matches; // Check if mobile
-
-//     function updateVisibility() {
-//       serviceCards.forEach((card, index) => {
-//         card.classList.toggle("hide-on-mobile", index !== currentIndex);
-//         let cardNumberIndicator = card.querySelector(".card-number");
-//         if (!cardNumberIndicator) {
-//           cardNumberIndicator = document.createElement("div");
-//           cardNumberIndicator.classList.add("card-number");
-//           card
-//             .querySelector(".service-card-wrapper")
-//             .appendChild(cardNumberIndicator);
-//         }
-//         cardNumberIndicator.textContent = `${currentIndex + 1}/${totalCards}`;
-//       });
-//     }
-
-//     function scrollToNextCard(direction) {
-//       if (extraContentOpen) return; // Disable card scrolling if extra content is open
-//       const nextIndex = currentIndex + direction;
-//       if (nextIndex >= 0 && nextIndex < serviceCards.length) {
-//         currentIndex = nextIndex;
-//         updateVisibility();
-//       }
-//     }
-
-//     if (isMobile) {
-//       let touchStartY = 0;
-//       let touchEndY = 0;
-
-//       container.addEventListener("touchstart", (event) => {
-//         touchStartY = event.touches[0].clientY;
-//       });
-
-//       container.addEventListener("touchend", (event) => {
-//         if (extraContentOpen) return; // Allow normal scrolling if extra content is open
-//         touchEndY = event.changedTouches[0].clientY;
-//         if (touchStartY > touchEndY + 50) {
-//           scrollToNextCard(1);
-//         } else if (touchStartY < touchEndY - 50) {
-//           scrollToNextCard(-1);
-//         }
-//       });
-
-//       // Prevent page scroll when swiping on cards (only if extra content is closed)
-//       container.addEventListener("touchmove", (event) => {
-//         if (!extraContentOpen) event.preventDefault();
-//       });
-//     }
-
-//     updateVisibility();
-
-//     container.querySelectorAll(".read-more").forEach((button) => {
-//       button.addEventListener("click", function (event) {
-//         event.stopPropagation();
-
-//         const serviceCard = this.closest(".service-card");
-//         const extraContent = serviceCard.querySelector(".extra-content");
-
-//         if (extraContent.style.maxHeight) {
-//           extraContent.style.maxHeight = null;
-//           extraContent.style.opacity = "0";
-//           this.textContent = "Read More";
-//           extraContentOpen = false; // Extra content is closed
-//         } else {
-//           extraContent.style.maxHeight = extraContent.scrollHeight + "px";
-//           extraContent.style.opacity = "1";
-//           this.textContent = "Read Less";
-//           extraContentOpen = true; // Extra content is open
-//         }
-//       });
-//     });
-//   }
-
-//   document.querySelectorAll(".services-container").forEach((container) => {
-//     initializeServicesContainer(container);
-//   });
-// });
 document.addEventListener("DOMContentLoaded", () => {
   function initializeServicesContainer(container) {
     const serviceCards = container.querySelectorAll(".service-card");
@@ -249,24 +165,29 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         cardNumberIndicator.textContent = `${currentIndex + 1}/${totalCards}`;
 
-        // Add the scroll arrow only on mobile
-        if (isMobile) {
-          let scrollArrow = cardWrapper.querySelector(".scroll-arrow");
-          if (!scrollArrow) {
-            scrollArrow = document.createElement("span");
-            scrollArrow.classList.add(
+        // Add left & right arrows (using chevron icons)
+        ["left", "right"].forEach((direction) => {
+          let arrow = cardWrapper.querySelector(`.scroll-arrow-${direction}`);
+          if (!arrow) {
+            arrow = document.createElement("span");
+            arrow.classList.add(
               "material-symbols-outlined",
-              "scroll-arrow"
+              `scroll-arrow-${direction}`
             );
-            scrollArrow.textContent = "swipe_down";
-            cardWrapper.appendChild(scrollArrow);
+            arrow.textContent =
+              direction === "left" ? "chevron_left" : "chevron_right"; // Updated icons
+            arrow.addEventListener("click", () =>
+              scrollToNextCard(direction === "left" ? -1 : 1)
+            );
+            cardWrapper.appendChild(arrow);
           }
-          // Show the arrow only if extra content is closed and it's not the last card
-          scrollArrow.style.display =
-            !extraContentOpen && currentIndex < totalCards - 1
+          // Show/hide arrows at start and end
+          arrow.style.display =
+            (direction === "left" && currentIndex > 0) ||
+            (direction === "right" && currentIndex < totalCards - 1)
               ? "block"
               : "none";
-        }
+        });
       });
     }
 
@@ -280,19 +201,19 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     if (isMobile) {
-      let touchStartY = 0;
-      let touchEndY = 0;
+      let touchStartX = 0;
+      let touchEndX = 0;
 
       container.addEventListener("touchstart", (event) => {
-        touchStartY = event.touches[0].clientY;
+        touchStartX = event.touches[0].clientX;
       });
 
       container.addEventListener("touchend", (event) => {
         if (extraContentOpen) return;
-        touchEndY = event.changedTouches[0].clientY;
-        if (touchStartY > touchEndY + 50) {
+        touchEndX = event.changedTouches[0].clientX;
+        if (touchStartX > touchEndX + 50) {
           scrollToNextCard(1);
-        } else if (touchStartY < touchEndY - 50) {
+        } else if (touchStartX < touchEndX - 50) {
           scrollToNextCard(-1);
         }
       });
