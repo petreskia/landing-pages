@@ -142,12 +142,100 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // Services Cards
+// document.addEventListener("DOMContentLoaded", () => {
+//   function initializeServicesContainer(container) {
+//     const serviceCards = container.querySelectorAll(".service-card");
+//     let currentIndex = 0;
+//     const totalCards = serviceCards.length;
+//     let extraContentOpen = false; // Flag to track extra content state
+
+//     function updateVisibility() {
+//       serviceCards.forEach((card, index) => {
+//         card.classList.toggle("hide-on-mobile", index !== currentIndex);
+//         let cardNumberIndicator = card.querySelector(".card-number");
+//         if (!cardNumberIndicator) {
+//           cardNumberIndicator = document.createElement("div");
+//           cardNumberIndicator.classList.add("card-number");
+//           card
+//             .querySelector(".service-card-wrapper")
+//             .appendChild(cardNumberIndicator);
+//         }
+//         cardNumberIndicator.textContent = `${currentIndex + 1}/${totalCards}`;
+//       });
+//     }
+
+//     function scrollToNextCard(direction) {
+//       if (extraContentOpen) return; // Disable scroll if extra content is open
+//       const nextIndex = currentIndex + direction;
+
+//       if (nextIndex >= 0 && nextIndex < serviceCards.length) {
+//         currentIndex = nextIndex;
+//         updateVisibility();
+//       }
+//     }
+
+//     function stopScrollPropagation(event) {
+//       if (extraContentOpen) return; // Disable scroll if extra content is open
+//       event.preventDefault();
+//       event.stopPropagation();
+//     }
+
+//     container.addEventListener("wheel", (event) => {
+//       stopScrollPropagation(event);
+//       scrollToNextCard(event.deltaY > 0 ? 1 : -1);
+//     });
+
+//     let touchStartY = 0;
+//     let touchEndY = 0;
+
+//     container.addEventListener("touchstart", (event) => {
+//       touchStartY = event.touches[0].clientY;
+//     });
+
+//     container.addEventListener("touchend", (event) => {
+//       if (extraContentOpen) return; //Disable scroll if extra content is open
+//       touchEndY = event.changedTouches[0].clientY;
+//       if (touchStartY > touchEndY + 50) {
+//         scrollToNextCard(1);
+//       } else if (touchStartY < touchEndY - 50) {
+//         scrollToNextCard(-1);
+//       }
+//     });
+
+//     updateVisibility();
+
+//     container.querySelectorAll(".read-more").forEach((button) => {
+//       button.addEventListener("click", function (event) {
+//         event.stopPropagation();
+
+//         const serviceCard = this.closest(".service-card");
+//         const extraContent = serviceCard.querySelector(".extra-content");
+
+//         if (extraContent.style.maxHeight) {
+//           extraContent.style.maxHeight = null;
+//           extraContent.style.opacity = "0";
+//           this.textContent = "Read More";
+//           extraContentOpen = false; // Extra content is closed
+//         } else {
+//           extraContent.style.maxHeight = extraContent.scrollHeight + "px";
+//           extraContent.style.opacity = "1";
+//           this.textContent = "Read Less";
+//           extraContentOpen = true; // Extra content is open
+//         }
+//       });
+//     });
+//   }
+
+//   document.querySelectorAll(".services-container").forEach((container) => {
+//     initializeServicesContainer(container);
+//   });
+// });
 document.addEventListener("DOMContentLoaded", () => {
   function initializeServicesContainer(container) {
     const serviceCards = container.querySelectorAll(".service-card");
     let currentIndex = 0;
     const totalCards = serviceCards.length;
-    let extraContentOpen = false; // Flag to track extra content state
+    let extraContentOpen = false;
 
     function updateVisibility() {
       serviceCards.forEach((card, index) => {
@@ -165,7 +253,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function scrollToNextCard(direction) {
-      if (extraContentOpen) return; // Disable scroll if extra content is open
+      if (extraContentOpen) return;
       const nextIndex = currentIndex + direction;
 
       if (nextIndex >= 0 && nextIndex < serviceCards.length) {
@@ -174,30 +262,42 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
 
-    function stopScrollPropagation(event) {
-      if (extraContentOpen) return; // Disable scroll if extra content is open
-      event.preventDefault();
-      event.stopPropagation();
+    function handleHorizontalScroll(event) {
+      container.scrollLeft += event.deltaY;
     }
 
     container.addEventListener("wheel", (event) => {
-      stopScrollPropagation(event);
-      scrollToNextCard(event.deltaY > 0 ? 1 : -1);
+      if (extraContentOpen) {
+        return;
+      }
+
+      if (window.innerWidth > 435) {
+        if (event.target.closest(".services-container")) {
+          event.preventDefault();
+          handleHorizontalScroll(event);
+        }
+      } else {
+        scrollToNextCard(event.deltaY > 0 ? 1 : -1);
+      }
     });
 
-    let touchStartY = 0;
-    let touchEndY = 0;
+    let touchStartX = 0; // Changed touchStartY to touchStartX
+    let touchEndX = 0; // Added touchEndX
 
     container.addEventListener("touchstart", (event) => {
-      touchStartY = event.touches[0].clientY;
+      touchStartX = event.touches[0].clientX; //Changed clientY to clientX
+    });
+
+    container.addEventListener("touchmove", (event) => {
+      event.preventDefault(); // Prevent default vertical scroll during touch move
     });
 
     container.addEventListener("touchend", (event) => {
-      if (extraContentOpen) return; //Disable scroll if extra content is open
-      touchEndY = event.changedTouches[0].clientY;
-      if (touchStartY > touchEndY + 50) {
+      if (extraContentOpen) return;
+      touchEndX = event.changedTouches[0].clientX; //Changed clientY to clientX
+      if (touchStartX > touchEndX + 50) {
         scrollToNextCard(1);
-      } else if (touchStartY < touchEndY - 50) {
+      } else if (touchStartX < touchEndX - 50) {
         scrollToNextCard(-1);
       }
     });
@@ -215,12 +315,12 @@ document.addEventListener("DOMContentLoaded", () => {
           extraContent.style.maxHeight = null;
           extraContent.style.opacity = "0";
           this.textContent = "Read More";
-          extraContentOpen = false; // Extra content is closed
+          extraContentOpen = false;
         } else {
           extraContent.style.maxHeight = extraContent.scrollHeight + "px";
           extraContent.style.opacity = "1";
           this.textContent = "Read Less";
-          extraContentOpen = true; // Extra content is open
+          extraContentOpen = true;
         }
       });
     });
