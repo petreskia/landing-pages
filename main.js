@@ -281,24 +281,34 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
-    let touchStartX = 0; // Changed touchStartY to touchStartX
-    let touchEndX = 0; // Added touchEndX
+    let touchStartX = 0;
+    let touchStartY = 0;
+    let touchEndX = 0;
+    let touchEndY = 0;
 
     container.addEventListener("touchstart", (event) => {
-      touchStartX = event.touches[0].clientX; //Changed clientY to clientX
+      touchStartX = event.touches[0].clientX;
+      touchStartY = event.touches[0].clientY;
     });
 
     container.addEventListener("touchmove", (event) => {
-      event.preventDefault(); // Prevent default vertical scroll during touch move
+      touchEndX = event.touches[0].clientX;
+      touchEndY = event.touches[0].clientY;
+      const deltaX = Math.abs(touchEndX - touchStartX);
+      const deltaY = Math.abs(touchEndY - touchStartY);
+      if (deltaX > deltaY) {
+        event.preventDefault(); // Prevent vertical scroll only for horizontal swipes
+      }
     });
 
     container.addEventListener("touchend", (event) => {
       if (extraContentOpen) return;
-      touchEndX = event.changedTouches[0].clientX; //Changed clientY to clientX
-      if (touchStartX > touchEndX + 50) {
-        scrollToNextCard(1);
-      } else if (touchStartX < touchEndX - 50) {
-        scrollToNextCard(-1);
+      if (Math.abs(touchEndX - touchStartX) > 50) {
+        if (touchStartX > touchEndX) {
+          scrollToNextCard(1);
+        } else {
+          scrollToNextCard(-1);
+        }
       }
     });
 
