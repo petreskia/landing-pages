@@ -142,6 +142,116 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // Services Card Slider
+// document.addEventListener("DOMContentLoaded", () => {
+//   function initializeServicesContainer(container) {
+//     const serviceCards = container.querySelectorAll(".service-card");
+//     let currentIndex = 0;
+//     const totalCards = serviceCards.length;
+//     let extraContentOpen = false;
+//     const isMobile = window.matchMedia("(max-width: 768px)").matches;
+
+//     function updateVisibility() {
+//       serviceCards.forEach((card, index) => {
+//         card.classList.toggle("hide-on-mobile", index !== currentIndex);
+
+//         let cardWrapper = card.querySelector(".service-card-wrapper");
+
+//         // Create or update the card number indicator
+//         let cardNumberIndicator = cardWrapper.querySelector(".card-number");
+//         if (!cardNumberIndicator) {
+//           cardNumberIndicator = document.createElement("div");
+//           cardNumberIndicator.classList.add("card-number");
+//           cardWrapper.appendChild(cardNumberIndicator);
+//         }
+//         cardNumberIndicator.textContent = `${currentIndex + 1}/${totalCards}`;
+
+//         // Add left & right arrows (using chevron icons)
+//         ["left", "right"].forEach((direction) => {
+//           let arrow = cardWrapper.querySelector(`.scroll-arrow-${direction}`);
+//           if (!arrow) {
+//             arrow = document.createElement("span");
+//             arrow.classList.add(
+//               "material-symbols-outlined",
+//               `scroll-arrow-${direction}`
+//             );
+//             arrow.textContent =
+//               direction === "left" ? "chevron_left" : "chevron_right"; // Updated icons
+//             arrow.addEventListener("click", () =>
+//               scrollToNextCard(direction === "left" ? -1 : 1)
+//             );
+//             cardWrapper.appendChild(arrow);
+//           }
+//           // Show/hide arrows at start and end
+//           arrow.style.display =
+//             (direction === "left" && currentIndex > 0) ||
+//             (direction === "right" && currentIndex < totalCards - 1)
+//               ? "block"
+//               : "none";
+//         });
+//       });
+//     }
+
+//     function scrollToNextCard(direction) {
+//       if (extraContentOpen) return;
+//       const nextIndex = currentIndex + direction;
+//       if (nextIndex >= 0 && nextIndex < serviceCards.length) {
+//         currentIndex = nextIndex;
+//         updateVisibility();
+//       }
+//     }
+
+//     if (isMobile) {
+//       let touchStartX = 0;
+//       let touchEndX = 0;
+
+//       container.addEventListener("touchstart", (event) => {
+//         touchStartX = event.touches[0].clientX;
+//       });
+
+//       container.addEventListener("touchend", (event) => {
+//         if (extraContentOpen) return;
+//         touchEndX = event.changedTouches[0].clientX;
+//         if (touchStartX > touchEndX + 50) {
+//           scrollToNextCard(1);
+//         } else if (touchStartX < touchEndX - 50) {
+//           scrollToNextCard(-1);
+//         }
+//       });
+
+//       container.addEventListener("touchmove", (event) => {
+//         if (!extraContentOpen) event.preventDefault();
+//       });
+//     }
+
+//     updateVisibility();
+
+//     container.querySelectorAll(".read-more").forEach((button) => {
+//       button.addEventListener("click", function (event) {
+//         event.stopPropagation();
+
+//         const serviceCard = this.closest(".service-card");
+//         const extraContent = serviceCard.querySelector(".extra-content");
+
+//         if (extraContent.style.maxHeight) {
+//           extraContent.style.maxHeight = null;
+//           extraContent.style.opacity = "0";
+//           this.textContent = "Read More";
+//           extraContentOpen = false;
+//         } else {
+//           extraContent.style.maxHeight = extraContent.scrollHeight + "px";
+//           extraContent.style.opacity = "1";
+//           this.textContent = "Read Less";
+//           extraContentOpen = true;
+//         }
+//         updateVisibility();
+//       });
+//     });
+//   }
+
+//   document.querySelectorAll(".services-container").forEach((container) => {
+//     initializeServicesContainer(container);
+//   });
+// });
 document.addEventListener("DOMContentLoaded", () => {
   function initializeServicesContainer(container) {
     const serviceCards = container.querySelectorAll(".service-card");
@@ -209,8 +319,9 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 
       container.addEventListener("touchend", (event) => {
-        if (extraContentOpen) return;
         touchEndX = event.changedTouches[0].clientX;
+        if (extraContentOpen || Math.abs(touchStartX - touchEndX) < 50) return;
+
         if (touchStartX > touchEndX + 50) {
           scrollToNextCard(1);
         } else if (touchStartX < touchEndX - 50) {
@@ -218,8 +329,13 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
 
+      // Allow scrolling even when extra content is open
       container.addEventListener("touchmove", (event) => {
-        if (!extraContentOpen) event.preventDefault();
+        if (extraContentOpen) {
+          event.stopPropagation(); // Allow scrolling even when extra content is open
+        } else {
+          event.preventDefault(); // Prevent default scrolling when extra content is closed
+        }
       });
     }
 
