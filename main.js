@@ -192,7 +192,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function scrollToNextCard(direction) {
-      if (extraContentOpen) return;
+      // if (extraContentOpen) return;
       const nextIndex = currentIndex + direction;
       if (nextIndex >= 0 && nextIndex < serviceCards.length) {
         currentIndex = nextIndex;
