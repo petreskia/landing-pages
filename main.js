@@ -140,21 +140,93 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 1000); // Delay to ensure the form is processed
   });
 });
-// Cards - Extra content
-document.querySelectorAll(".read-more").forEach((button) => {
-  button.addEventListener("click", function () {
-    const serviceCard = this.closest(".service-card");
-    const extraContent = serviceCard.querySelector(".extra-content");
-    const button = this;
 
-    if (extraContent.style.maxHeight) {
-      extraContent.style.maxHeight = null;
-      extraContent.style.opacity = "0";
-      button.textContent = "Read More";
-    } else {
-      extraContent.style.maxHeight = extraContent.scrollHeight + "px";
-      extraContent.style.opacity = "1";
-      button.textContent = "Read Less";
+// Services Cards
+document.addEventListener("DOMContentLoaded", () => {
+  function initializeServicesContainer(container) {
+    const serviceCards = container.querySelectorAll(".service-card");
+    let currentIndex = 0;
+    const totalCards = serviceCards.length;
+    let extraContentOpen = false; // Flag to track extra content state
+
+    function updateVisibility() {
+      serviceCards.forEach((card, index) => {
+        card.classList.toggle("hide-on-mobile", index !== currentIndex);
+        let cardNumberIndicator = card.querySelector(".card-number");
+        if (!cardNumberIndicator) {
+          cardNumberIndicator = document.createElement("div");
+          cardNumberIndicator.classList.add("card-number");
+          card
+            .querySelector(".service-card-wrapper")
+            .appendChild(cardNumberIndicator);
+        }
+        cardNumberIndicator.textContent = `${currentIndex + 1}/${totalCards}`;
+      });
     }
+
+    function scrollToNextCard(direction) {
+      if (extraContentOpen) return; // Disable scroll if extra content is open
+      const nextIndex = currentIndex + direction;
+
+      if (nextIndex >= 0 && nextIndex < serviceCards.length) {
+        currentIndex = nextIndex;
+        updateVisibility();
+      }
+    }
+
+    function stopScrollPropagation(event) {
+      if (extraContentOpen) return; // Disable scroll if extra content is open
+      event.preventDefault();
+      event.stopPropagation();
+    }
+
+    container.addEventListener("wheel", (event) => {
+      stopScrollPropagation(event);
+      scrollToNextCard(event.deltaY > 0 ? 1 : -1);
+    });
+
+    let touchStartY = 0;
+    let touchEndY = 0;
+
+    container.addEventListener("touchstart", (event) => {
+      touchStartY = event.touches[0].clientY;
+    });
+
+    container.addEventListener("touchend", (event) => {
+      if (extraContentOpen) return; //Disable scroll if extra content is open
+      touchEndY = event.changedTouches[0].clientY;
+      if (touchStartY > touchEndY + 50) {
+        scrollToNextCard(1);
+      } else if (touchStartY < touchEndY - 50) {
+        scrollToNextCard(-1);
+      }
+    });
+
+    updateVisibility();
+
+    container.querySelectorAll(".read-more").forEach((button) => {
+      button.addEventListener("click", function (event) {
+        event.stopPropagation();
+
+        const serviceCard = this.closest(".service-card");
+        const extraContent = serviceCard.querySelector(".extra-content");
+
+        if (extraContent.style.maxHeight) {
+          extraContent.style.maxHeight = null;
+          extraContent.style.opacity = "0";
+          this.textContent = "Read More";
+          extraContentOpen = false; // Extra content is closed
+        } else {
+          extraContent.style.maxHeight = extraContent.scrollHeight + "px";
+          extraContent.style.opacity = "1";
+          this.textContent = "Read Less";
+          extraContentOpen = true; // Extra content is open
+        }
+      });
+    });
+  }
+
+  document.querySelectorAll(".services-container").forEach((container) => {
+    initializeServicesContainer(container);
   });
 });

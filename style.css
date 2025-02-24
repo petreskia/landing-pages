@@ -226,6 +226,7 @@ h2 {
   text-align: start;
   gap: 1rem;
   height: 100%;
+  flex-shrink: 1;
 }
 
 .service-card-top {
@@ -267,7 +268,17 @@ h2 {
 .read-more:hover {
   color: rgba(229, 227, 224, 1);
 }
-
+.card-number {
+  position: absolute;
+  bottom: 12px;
+  right: 10px;
+  color: rgba(229, 227, 224, 0.595);
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 600;
+  display: none; /* Hide by default */
+}
 /* About Us Section */
 .about-section {
   font-family: "Montserrat", serif;
@@ -553,7 +564,7 @@ select {
 }
 
 /* Responsive Styles */
-@media only screen and (max-width: 425px) {
+@media only screen and (max-width: 435px) {
   .logo img {
     width: 150px;
     height: 150px;
@@ -561,6 +572,23 @@ select {
   .link-to-contact,
   .banner-top .icon {
     font-size: 24px;
+  }
+  .services-container {
+    height: max-content;
+    display: block;
+    width: 100%;
+    overflow: scroll;
+  }
+  .service-card {
+    scroll-snap-align: start;
+    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.264);
+    position: relative;
+  }
+  .hide-on-mobile {
+    display: none;
+  }
+  .card-number {
+    display: block;
   }
 }
 
