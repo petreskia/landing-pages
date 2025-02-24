@@ -166,7 +166,7 @@ document.addEventListener("DOMContentLoaded", () => {
 //     }
 
 //     function scrollToNextCard(direction) {
-//       if (extraContentOpen) return; // Disable card scroll if extra content is open
+//       if (extraContentOpen) return; // Disable card scrolling if extra content is open
 //       const nextIndex = currentIndex + direction;
 //       if (nextIndex >= 0 && nextIndex < serviceCards.length) {
 //         currentIndex = nextIndex;
@@ -174,7 +174,6 @@ document.addEventListener("DOMContentLoaded", () => {
 //       }
 //     }
 
-//     // Allow normal scrolling on desktop
 //     if (isMobile) {
 //       let touchStartY = 0;
 //       let touchEndY = 0;
@@ -184,7 +183,7 @@ document.addEventListener("DOMContentLoaded", () => {
 //       });
 
 //       container.addEventListener("touchend", (event) => {
-//         if (extraContentOpen) return; //Disable card scroll if extra content is open
+//         if (extraContentOpen) return; // Allow normal scrolling if extra content is open
 //         touchEndY = event.changedTouches[0].clientY;
 //         if (touchStartY > touchEndY + 50) {
 //           scrollToNextCard(1);
@@ -193,9 +192,9 @@ document.addEventListener("DOMContentLoaded", () => {
 //         }
 //       });
 
-//       // Prevent page scroll when swiping on cards (only mobile)
+//       // Prevent page scroll when swiping on cards (only if extra content is closed)
 //       container.addEventListener("touchmove", (event) => {
-//         event.preventDefault();
+//         if (!extraContentOpen) event.preventDefault();
 //       });
 //     }
 
@@ -232,26 +231,47 @@ document.addEventListener("DOMContentLoaded", () => {
     const serviceCards = container.querySelectorAll(".service-card");
     let currentIndex = 0;
     const totalCards = serviceCards.length;
-    let extraContentOpen = false; // Flag to track extra content state
-    const isMobile = window.matchMedia("(max-width: 768px)").matches; // Check if mobile
+    let extraContentOpen = false;
+    const isMobile = window.matchMedia("(max-width: 768px)").matches;
 
     function updateVisibility() {
       serviceCards.forEach((card, index) => {
         card.classList.toggle("hide-on-mobile", index !== currentIndex);
-        let cardNumberIndicator = card.querySelector(".card-number");
+
+        let cardWrapper = card.querySelector(".service-card-wrapper");
+
+        // Create or update the card number indicator
+        let cardNumberIndicator = cardWrapper.querySelector(".card-number");
         if (!cardNumberIndicator) {
           cardNumberIndicator = document.createElement("div");
           cardNumberIndicator.classList.add("card-number");
-          card
-            .querySelector(".service-card-wrapper")
-            .appendChild(cardNumberIndicator);
+          cardWrapper.appendChild(cardNumberIndicator);
         }
         cardNumberIndicator.textContent = `${currentIndex + 1}/${totalCards}`;
+
+        // Add the scroll arrow only on mobile
+        if (isMobile) {
+          let scrollArrow = cardWrapper.querySelector(".scroll-arrow");
+          if (!scrollArrow) {
+            scrollArrow = document.createElement("span");
+            scrollArrow.classList.add(
+              "material-symbols-outlined",
+              "scroll-arrow"
+            );
+            scrollArrow.textContent = "swipe_down";
+            cardWrapper.appendChild(scrollArrow);
+          }
+          // Show the arrow only if extra content is closed and it's not the last card
+          scrollArrow.style.display =
+            !extraContentOpen && currentIndex < totalCards - 1
+              ? "block"
+              : "none";
+        }
       });
     }
 
     function scrollToNextCard(direction) {
-      if (extraContentOpen) return; // Disable card scrolling if extra content is open
+      if (extraContentOpen) return;
       const nextIndex = currentIndex + direction;
       if (nextIndex >= 0 && nextIndex < serviceCards.length) {
         currentIndex = nextIndex;
@@ -268,7 +288,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 
       container.addEventListener("touchend", (event) => {
-        if (extraContentOpen) return; // Allow normal scrolling if extra content is open
+        if (extraContentOpen) return;
         touchEndY = event.changedTouches[0].clientY;
         if (touchStartY > touchEndY + 50) {
           scrollToNextCard(1);
@@ -277,7 +297,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
 
-      // Prevent page scroll when swiping on cards (only if extra content is closed)
       container.addEventListener("touchmove", (event) => {
         if (!extraContentOpen) event.preventDefault();
       });
@@ -296,13 +315,14 @@ document.addEventListener("DOMContentLoaded", () => {
           extraContent.style.maxHeight = null;
           extraContent.style.opacity = "0";
           this.textContent = "Read More";
-          extraContentOpen = false; // Extra content is closed
+          extraContentOpen = false;
         } else {
           extraContent.style.maxHeight = extraContent.scrollHeight + "px";
           extraContent.style.opacity = "1";
           this.textContent = "Read Less";
-          extraContentOpen = true; // Extra content is open
+          extraContentOpen = true;
         }
+        updateVisibility();
       });
     });
   }
