@@ -243,6 +243,12 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // TypeForm Integration
-document.getElementById("surveyButton").addEventListener("click", function () {
-  window.open("https://form.typeform.com/to/RNSIymrW", "_blank");
+// TypeForm Integration for multiple buttons
+document.querySelectorAll(".surveyButton").forEach((button) => {
+  button.addEventListener("click", function () {
+    const surveyUrl = this.getAttribute("data-survey-url");
+    if (surveyUrl) {
+      window.open(surveyUrl, "_blank");
+    }
+  });
 });

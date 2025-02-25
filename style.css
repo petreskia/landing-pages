@@ -274,6 +274,11 @@ h2 {
   background-color: inherit;
   display: none;
 }
+.surveyButton {
+  cursor: pointer;
+  border: inherit;
+  font-family: "Montserrat", serif;
+}
 @media only screen and (max-width: 435px) {
   .services-container {
     height: 380px;
