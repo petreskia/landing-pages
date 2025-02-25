@@ -141,20 +141,101 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 // Cards - Extra content
-document.querySelectorAll(".read-more").forEach((button) => {
-  button.addEventListener("click", function () {
-    const serviceCard = this.closest(".service-card");
-    const extraContent = serviceCard.querySelector(".extra-content");
-    const button = this;
+// document.querySelectorAll(".read-more").forEach((button) => {
+//   button.addEventListener("click", function () {
+//     const serviceCard = this.closest(".service-card");
+//     const extraContent = serviceCard.querySelector(".extra-content");
+//     const button = this;
 
-    if (extraContent.style.maxHeight) {
-      extraContent.style.maxHeight = null;
-      extraContent.style.opacity = "0";
-      button.textContent = "Read More";
-    } else {
-      extraContent.style.maxHeight = extraContent.scrollHeight + "px";
-      extraContent.style.opacity = "1";
-      button.textContent = "Read Less";
+//     if (extraContent.style.maxHeight) {
+//       extraContent.style.maxHeight = null;
+//       extraContent.style.opacity = "0";
+//       button.textContent = "Read More";
+//     } else {
+//       extraContent.style.maxHeight = extraContent.scrollHeight + "px";
+//       extraContent.style.opacity = "1";
+//       button.textContent = "Read Less";
+//     }
+//   });
+// });
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll(".services-container").forEach((container) => {
+    // Create the toggle button for each container
+    const toggleButton = document.createElement("button");
+    toggleButton.classList.add("toggle-services");
+    toggleButton.innerHTML = "▼"; // Down arrow
+    container.after(toggleButton);
+
+    function expandServices() {
+      container.classList.add("expanded");
+      toggleButton.innerHTML = "▲"; // Up arrow
+
+      // Remove shadow effect from the second card
+      const secondCard = container.querySelectorAll(".service-card")[1];
+      if (secondCard) {
+        secondCard.classList.remove("shadow-card");
+        secondCard.classList.add("remove-shadow");
+      }
+    }
+
+    function collapseServices() {
+      container.classList.remove("expanded");
+      toggleButton.innerHTML = "▼"; // Down arrow
+
+      // Close all extra content and reset "Read More" buttons
+      container.querySelectorAll(".extra-content").forEach((extra) => {
+        extra.style.maxHeight = null;
+        extra.style.opacity = "0";
+      });
+
+      container.querySelectorAll(".read-more").forEach((button) => {
+        button.textContent = "Read More";
+      });
+
+      // Add shadow effect back to the second card
+      const secondCard = container.querySelectorAll(".service-card")[1];
+      if (secondCard) {
+        secondCard.classList.remove("remove-shadow");
+        secondCard.classList.add("shadow-card");
+      }
+
+      // Move focus back to the start of the container
+      container.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    // Toggle expansion on arrow click
+    toggleButton.addEventListener("click", () => {
+      if (container.classList.contains("expanded")) {
+        collapseServices();
+      } else {
+        expandServices();
+      }
+    });
+
+    // Handle "Read More" button clicks inside each container
+    container.querySelectorAll(".read-more").forEach((button) => {
+      button.addEventListener("click", function () {
+        const serviceCard = this.closest(".service-card");
+        const extraContent = serviceCard.querySelector(".extra-content");
+
+        if (extraContent.style.maxHeight) {
+          extraContent.style.maxHeight = null;
+          extraContent.style.opacity = "0";
+          this.textContent = "Read More";
+        } else {
+          extraContent.style.maxHeight = extraContent.scrollHeight + "px";
+          extraContent.style.opacity = "1";
+          this.textContent = "Read Less";
+        }
+
+        expandServices(); // Ensure the container expands when extra content opens
+      });
+    });
+
+    // Initially apply shadow-card to second card
+    const secondCard = container.querySelectorAll(".service-card")[1];
+    if (secondCard) {
+      secondCard.classList.add("shadow-card");
     }
   });
 });

@@ -287,12 +287,18 @@ h2 {
   .shadow-card {
     opacity: 30%;
   }
+  .remove-shadow {
+    opacity: 100%;
+  }
   .expand-services-btn {
     display: block;
     position: absolute;
     right: 0%;
     bottom: 5%;
     border: none;
+  }
+  .services-container.expanded {
+    height: max-content; /* Expand to show all services */
   }
 }
 
