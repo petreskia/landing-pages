@@ -241,3 +241,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+
+// TypeForm Integration
+document.getElementById("surveyButton").addEventListener("click", function () {
+  window.open("https://form.typeform.com/to/RNSIymrW", "_blank");
+});
