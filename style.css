@@ -274,7 +274,7 @@ h2 {
   background-color: inherit;
   display: none;
 }
-@media only screen and (max-width: 780px) {
+@media only screen and (max-width: 435px) {
   .services-container {
     height: 380px;
     overflow: hidden;
@@ -299,6 +299,19 @@ h2 {
   }
   .services-container.expanded {
     height: max-content; /* Expand to show all services */
+  }
+}
+@media (min-width: 436px) {
+  .toggle-services {
+    display: none;
+  }
+  .service-card-wrapper {
+    height: 100%;
+  }
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+  .service-card {
+    flex-basis: 50%;
   }
 }
 
@@ -631,9 +644,6 @@ select {
   h2 {
     font-size: 35px;
   }
-  /* .services-container {
-    flex-direction: column;
-  } */
   .video-container {
     flex-direction: column;
   }
