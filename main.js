@@ -178,6 +178,31 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
 
+    // function collapseServices() {
+    //   container.classList.remove("expanded");
+    //   toggleButton.innerHTML = "▼"; // Down arrow
+
+    //   // Close all extra content and reset "Read More" buttons
+    //   container.querySelectorAll(".extra-content").forEach((extra) => {
+    //     extra.style.maxHeight = null;
+    //     extra.style.opacity = "0";
+    //   });
+
+    //   container.querySelectorAll(".read-more").forEach((button) => {
+    //     button.textContent = "Read More";
+    //   });
+
+    //   // Add shadow effect back to the second card
+    //   const secondCard = container.querySelectorAll(".service-card")[1];
+    //   if (secondCard) {
+    //     secondCard.classList.remove("remove-shadow");
+    //     secondCard.classList.add("shadow-card");
+    //   }
+
+    //   // Move focus back to the start of the container
+    //   container.scrollIntoView({ behavior: "smooth", block: "start" });
+    // }
+
     function collapseServices() {
       container.classList.remove("expanded");
       toggleButton.innerHTML = "▼"; // Down arrow
@@ -199,8 +224,11 @@ document.addEventListener("DOMContentLoaded", function () {
         secondCard.classList.add("shadow-card");
       }
 
-      // Move focus back to the start of the container
-      container.scrollIntoView({ behavior: "smooth", block: "start" });
+      // Move focus back to the section title (first h3)
+      const title = container.querySelector("h3");
+      if (title) {
+        title.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
     }
 
     // Toggle expansion on arrow click
