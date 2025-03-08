@@ -141,23 +141,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 // Cards - Extra content
-// document.querySelectorAll(".read-more").forEach((button) => {
-//   button.addEventListener("click", function () {
-//     const serviceCard = this.closest(".service-card");
-//     const extraContent = serviceCard.querySelector(".extra-content");
-//     const button = this;
-
-//     if (extraContent.style.maxHeight) {
-//       extraContent.style.maxHeight = null;
-//       extraContent.style.opacity = "0";
-//       button.textContent = "Read More";
-//     } else {
-//       extraContent.style.maxHeight = extraContent.scrollHeight + "px";
-//       extraContent.style.opacity = "1";
-//       button.textContent = "Read Less";
-//     }
-//   });
-// });
 document.addEventListener("DOMContentLoaded", function () {
   document.querySelectorAll(".services-container").forEach((container) => {
     // Create the toggle button for each container
