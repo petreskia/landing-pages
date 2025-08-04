@@ -206,9 +206,11 @@ img {
   text-align: center;
   font-size: clamp(1.5rem, 4vw, 2.5rem);
   margin-bottom: 50px;
-  color: #333;
+  color: #f8f9fa;
 }
-
+.dark {
+  color: #333333;
+}
 /* ___________________________________________ */
 .recipes {
   display: grid;
